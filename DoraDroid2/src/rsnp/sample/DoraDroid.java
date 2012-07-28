@@ -26,6 +26,7 @@ import java.util.Locale;
 import org.robotservices.v02.IAsyncCallBack;
 import org.robotservices.v02.profile.common.Ret_value;
 
+import com.camera.AndroidCamera;
 import com.fujitsu.rsi.helper.ContentsProfileHelper;
 
 //import com.lego.minddroid.Lama;
@@ -117,7 +118,7 @@ public class DoraDroid extends Activity implements BTConnectable {
 	private OnInitListener ttsInitListener = new OnInitListener() {
 
 		/*
-		 * (é�ž Javadoc)
+		 * (Ã©ï¿½Å¾ Javadoc)
 		 *
 		 * @see android.speech.tts.TextToSpeech.OnInitListener#onInit(int)
 		 */
@@ -134,14 +135,14 @@ public class DoraDroid extends Activity implements BTConnectable {
 		}
 	};
 	/**
-	 * ãƒ‘ãƒ©ãƒ¡ã‚¿ã�§æŒ‡å®šã�•ã‚Œã�Ÿæ–‡å­—åˆ—ã‚’ç”»é�¢ã�«è¡¨ç¤ºã�—ã€�èª­ã�¿ä¸Šã�’ã‚‹(è‹±èªž)
+	 * Ã£Æ’â€˜Ã£Æ’Â©Ã£Æ’Â¡Ã£â€šÂ¿Ã£ï¿½Â§Ã¦Å’â€¡Ã¥Â®Å¡Ã£ï¿½â€¢Ã£â€šÅ’Ã£ï¿½Å¸Ã¦â€“â€¡Ã¥Â­â€”Ã¥Ë†â€”Ã£â€šâ€™Ã§â€�Â»Ã©ï¿½Â¢Ã£ï¿½Â«Ã¨Â¡Â¨Ã§Â¤ÂºÃ£ï¿½â€”Ã£â‚¬ï¿½Ã¨ÂªÂ­Ã£ï¿½Â¿Ã¤Â¸Å Ã£ï¿½â€™Ã£â€šâ€¹(Ã¨â€¹Â±Ã¨ÂªÅ¾)
 	 *
 	 * @param message
-	 *            è¡¨ç¤ºã�™ã‚‹æ–‡å­—åˆ—
+	 *            Ã¨Â¡Â¨Ã§Â¤ÂºÃ£ï¿½â„¢Ã£â€šâ€¹Ã¦â€“â€¡Ã¥Â­â€”Ã¥Ë†â€”
 	 */
 	public void displayAndSpeech(final String message) {
 
-		// ãƒ“ãƒ¥ãƒ¼ã�«è¨­å®š
+		// Ã£Æ’â€œÃ£Æ’Â¥Ã£Æ’Â¼Ã£ï¿½Â«Ã¨Â¨Â­Ã¥Â®Å¡
 		final TextView txtView = (TextView) findViewById(R.id.textView);
 		txtView.post(new Runnable() {
 			@Override
@@ -150,16 +151,16 @@ public class DoraDroid extends Activity implements BTConnectable {
 			}
 		});
 
-		// èª­ã�¿ä¸Šã�’ã‚‹
+		// Ã¨ÂªÂ­Ã£ï¿½Â¿Ã¤Â¸Å Ã£ï¿½â€™Ã£â€šâ€¹
 		tts.speak(message, TextToSpeech.QUEUE_FLUSH, null);
 		System.out.println(message);
 	}
 
-	/** Contents_profileã�®ã‚³ãƒ¼ãƒ«ãƒ�ãƒƒã‚¯ */
+	/** Contents_profileÃ£ï¿½Â®Ã£â€šÂ³Ã£Æ’Â¼Ã£Æ’Â«Ã£Æ’ï¿½Ã£Æ’Æ’Ã£â€šÂ¯ */
 	private IAsyncCallBack callback = new IAsyncCallBack() {
 
 		/*
-		 * (é�ž Javadoc)
+		 * (Ã©ï¿½Å¾ Javadoc)
 		 *
 		 * @see
 		 * org.robotservices.v02.IAsyncCallBack#doEvent(org.robotservices.v02
@@ -175,14 +176,14 @@ public class DoraDroid extends Activity implements BTConnectable {
 		}
 
 		/*
-		 * (é�ž Javadoc)
+		 * (Ã©ï¿½Å¾ Javadoc)
 		 *
 		 * @see
 		 * org.robotservices.v02.IAsyncCallBack#doException(java.lang.Exception)
 		 */
 		@Override
 		public void doException(Exception arg0) {
-			// ã�ªã�«ã‚‚ã�—ã�ªã�„
+			// Ã£ï¿½ÂªÃ£ï¿½Â«Ã£â€šâ€šÃ£ï¿½â€”Ã£ï¿½ÂªÃ£ï¿½â€ž
 		}
 	};
 
@@ -212,7 +213,7 @@ public class DoraDroid extends Activity implements BTConnectable {
 		tts = new TextToSpeech(getApplicationContext(), ttsInitListener);
 		rsnp = new RSNPController(callback);
 		scribeView = new SurfaceScribeView(this);
-		// ObjectHolderã�«ç™»éŒ²
+		// ObjectHolderÃ£ï¿½Â«Ã§â„¢Â»Ã©Å’Â²
 		ObjectHolder.getInstance().add(ImageProvidor.class.getName(), scribeView);
 
 		LinearLayout layout = (LinearLayout) findViewById(R.id.layoutMain);
@@ -433,9 +434,9 @@ public class DoraDroid extends Activity implements BTConnectable {
 
 	@Override
 	protected void onDestroy() {
-		// RSNPåˆ‡æ–­
+		// RSNPÃ¥Ë†â€¡Ã¦â€“Â­
 		rsnp.disconnect();
-		// TTSçµ‚äº†
+		// TTSÃ§Âµâ€šÃ¤Âºâ€ 
 		tts.shutdown();
 		super.onDestroy();
 		destroyBTCommunicator();
@@ -653,6 +654,10 @@ public class DoraDroid extends Activity implements BTConnectable {
 				BluetoothAdapter.getDefaultAdapter().disable();
 				btOnByUs=false;
 			}
+			finish();
+			return true;
+		case R.id.takepic:
+			startActivity(new Intent(DoraDroid.this, AndroidCamera.class));
 			finish();
 			return true;
 		default:

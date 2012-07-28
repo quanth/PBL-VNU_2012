@@ -5,8 +5,8 @@ import com.fujitsu.rsi.client.acceptor.base.MotionProfileBase;
 
 import rsnp.sample.DoraDroid;
 
-public class Motion_profile_impl extends MotionProfileBase{
-	
+public class Motion_profile_impl extends MotionProfileBase {
+
 	@Override
 	public Ret_value declare_control(long conv_id) {
 		Ret_value ret = new Ret_value();
@@ -18,7 +18,7 @@ public class Motion_profile_impl extends MotionProfileBase{
 	public Ret_value release_control(long conv_id) {
 		Ret_value ret = new Ret_value();
 		System.out.println("in the motionProfile release");
-		//bs.closeBT();
+		// bs.closeBT();
 		return ret;
 	}
 
@@ -26,8 +26,8 @@ public class Motion_profile_impl extends MotionProfileBase{
 	public Ret_value forward(long conv_id, double distance, String option) {
 		Ret_value ret = new Ret_value();
 		System.out.println("in the motionProfile forward");
-		//bs.selectFunc(8, distance);
-		DoraDroid.updateMotorControl(20,20);
+		// bs.selectFunc(8, distance);
+		DoraDroid.updateMotorControl(20, 20);
 		return ret;
 	}
 
@@ -35,8 +35,8 @@ public class Motion_profile_impl extends MotionProfileBase{
 	public Ret_value backward(long conv_id, double distance, String option) {
 		Ret_value ret = new Ret_value();
 		System.out.println("in the motionProfile back");
-		DoraDroid.updateMotorControl(-20,-20);
-		//bs.selectFunc(2, distance);
+		DoraDroid.updateMotorControl(-20, -20);
+		// bs.selectFunc(2, distance);
 		return ret;
 	}
 
@@ -46,8 +46,8 @@ public class Motion_profile_impl extends MotionProfileBase{
 		System.out.println("just in the motionProfile right");
 		Ret_value ret = new Ret_value();
 		System.out.println("in the motionProfile right");
-		//bs.selectFunc(6, radius);
-		DoraDroid.updateMotorControl(20,0);
+		// bs.selectFunc(6, radius);
+		DoraDroid.updateMotorControl(20, 0);
 		return ret;
 	}
 
@@ -57,8 +57,8 @@ public class Motion_profile_impl extends MotionProfileBase{
 		System.out.println("just in the motionProfile left");
 		Ret_value ret = new Ret_value();
 		System.out.println("in the motionProfile left");
-		//bs.selectFunc(4, radius);
-		DoraDroid.updateMotorControl(0,20);
+		// bs.selectFunc(4, radius);
+		DoraDroid.updateMotorControl(0, 20);
 		return ret;
 	}
 
@@ -67,8 +67,8 @@ public class Motion_profile_impl extends MotionProfileBase{
 		System.out.println("just in the motionProfile spinRight");
 		Ret_value ret = new Ret_value();
 		System.out.println("in the motionProfile spinRight");
-		//bs.selectFunc(6, degree);
-		DoraDroid.updateMotorControl(20,0);
+		// bs.selectFunc(6, degree);
+		DoraDroid.updateMotorControl(20, 0);
 		return ret;
 	}
 
@@ -76,8 +76,8 @@ public class Motion_profile_impl extends MotionProfileBase{
 	public Ret_value spin_left(long conv_id, double degree, String option) {
 		Ret_value ret = new Ret_value();
 		System.out.println("in the motionProfile spinLeft");
-		//bs.selectFunc(4, degree);
-		DoraDroid.updateMotorControl(0,20);
+		// bs.selectFunc(4, degree);
+		DoraDroid.updateMotorControl(0, 20);
 		return ret;
 	}
 
@@ -86,8 +86,8 @@ public class Motion_profile_impl extends MotionProfileBase{
 		System.out.println("just in the motionProfile stop");
 		Ret_value ret = new Ret_value();
 		System.out.println("in the motionProfile stop");
-		//bs.selectFunc(5, 0);
-		DoraDroid.updateMotorControl(0,0);
+		// bs.selectFunc(5, 0);
+		DoraDroid.updateMotorControl(0, 0);
 		return ret;
 	}
 }
