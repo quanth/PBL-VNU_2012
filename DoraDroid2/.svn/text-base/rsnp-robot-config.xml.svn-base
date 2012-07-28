@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE properties SYSTEM "http://java.sun.com/dtd/properties.dtd">
+<properties>
+	<comment>ロボットライブラリ環境設定ファイル</comment>
+
+	<!-- DownChannelServiceレスポンスタイムアウト（秒単位） -->
+	<!-- ここで設定した時間以内にDownChannelServiceレスポンスが来る必要がある。
+	　rsnp-service-config.xmlのself_timeoutより十分に長い時間を指定すること。 -->
+	<entry key="connect_timeout">1800</entry>
+
+    <!-- メッセージキュー挿入待ちタイムアウト（ミリ秒） -->
+	<entry key="queue_entry_timeout">30000</entry>
+    <!-- メッセージキューサイズ -->
+	<entry key="queue_entry_max">1000</entry>
+
+	<!-- プロファイル生成ファクトリ実装クラスの完全修飾クラス名 -->
+	<entry key="InvokerProfileFactory">com.fujitsu.rsi.client.profile.invoker.InvokerProfileFactory_impl</entry>
+	<entry key="AcceptorProfileFactory">rsnp.sample.acceptor.AcceptorProfileFactory_impl</entry>
+
+	<!-- 証明書設定 三者間認証を使用する場合に必要
+	<entry key="cert_folder_path">C:\cert\</entry>
+	<entry key="cert_pkcs12_file">robot-106.p12</entry>
+	<entry key="cert_pkcs12_password">robot-106</entry>
+	<entry key="cert_pkcs12_alias">robot-106</entry>
+    -->
+</properties>

@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry excluding="com/lego/minddroid/Tutorial.java|com/lego/minddroid/SplashMenuView.java|com/lego/minddroid/StartSound.java|com/lego/minddroid/GameView.java|com/lego/minddroid/NXJUploader.java|com/lego/minddroid/About.java|com/lego/minddroid/NXJFileDialog.java|rsnp/sample/acceptor/MotionControl.java" kind="src" path="src"/>
+	<classpathentry kind="src" path="gen"/>
+	<classpathentry kind="lib" path="libs/rsnp-robot-api-2.3.0_r49.jar"/>
+	<classpathentry kind="lib" path="libs/rsnp-robot-fjlib-2.3.0_r49.jar"/>
+	<classpathentry kind="lib" path="libs/apache-mime4j-0.6.jar"/>
+	<classpathentry kind="lib" path="libs/commons-codec-1.3.jar"/>
+	<classpathentry kind="lib" path="libs/commons-logging-1.1.1.jar"/>
+	<classpathentry kind="lib" path="libs/httpclient-4.0.jar"/>
+	<classpathentry kind="lib" path="libs/httpcore-4.0.1.jar"/>
+	<classpathentry kind="lib" path="libs/httpmime-4.0.jar"/>
+	<classpathentry kind="con" path="com.android.ide.eclipse.adt.ANDROID_FRAMEWORK"/>
+	<classpathentry kind="output" path="bin"/>
+</classpath>

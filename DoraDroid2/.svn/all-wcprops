@@ -1,0 +1,65 @@
+K 25
+svn:wc:ra_dav:version-url
+V 33
+/repos/dora/!svn/ver/42/DoraFinal
+END
+default.properties
+K 25
+svn:wc:ra_dav:version-url
+V 52
+/repos/dora/!svn/ver/38/DoraFinal/default.properties
+END
+README.txt
+K 25
+svn:wc:ra_dav:version-url
+V 44
+/repos/dora/!svn/ver/38/DoraFinal/README.txt
+END
+license.key
+K 25
+svn:wc:ra_dav:version-url
+V 45
+/repos/dora/!svn/ver/38/DoraFinal/license.key
+END
+build.properties
+K 25
+svn:wc:ra_dav:version-url
+V 50
+/repos/dora/!svn/ver/38/DoraFinal/build.properties
+END
+local.properties
+K 25
+svn:wc:ra_dav:version-url
+V 50
+/repos/dora/!svn/ver/38/DoraFinal/local.properties
+END
+AndroidManifest.xml
+K 25
+svn:wc:ra_dav:version-url
+V 53
+/repos/dora/!svn/ver/38/DoraFinal/AndroidManifest.xml
+END
+build.xml
+K 25
+svn:wc:ra_dav:version-url
+V 43
+/repos/dora/!svn/ver/38/DoraFinal/build.xml
+END
+rsnp-robot-config.xml
+K 25
+svn:wc:ra_dav:version-url
+V 55
+/repos/dora/!svn/ver/38/DoraFinal/rsnp-robot-config.xml
+END
+.project
+K 25
+svn:wc:ra_dav:version-url
+V 42
+/repos/dora/!svn/ver/38/DoraFinal/.project
+END
+.classpath
+K 25
+svn:wc:ra_dav:version-url
+V 44
+/repos/dora/!svn/ver/42/DoraFinal/.classpath
+END

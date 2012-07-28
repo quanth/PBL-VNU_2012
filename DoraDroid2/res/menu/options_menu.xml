@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu
+  xmlns:android="http://schemas.android.com/apk/res/android">
+<item android:title="RSNP Connect" android:visible="true" android:id="@+id/rsnp_connect" android:enabled="true"></item>
+<item android:title="RSNP Disconnect" android:visible="true" android:id="@+id/rsnp_disconnect" android:enabled="true"></item>
+<item android:title="Clear" android:visible="true" android:id="@+id/clear" android:enabled="true"></item>
+<item android:title="Quit" android:visible="true" android:id="@+id/quit" android:enabled="true"></item>
+</menu>

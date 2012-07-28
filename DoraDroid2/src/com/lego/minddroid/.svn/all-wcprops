@@ -1,0 +1,59 @@
+K 25
+svn:wc:ra_dav:version-url
+V 56
+/repos/dora/!svn/ver/38/DoraFinal/src/com/lego/minddroid
+END
+UploadThreadListener.java
+K 25
+svn:wc:ra_dav:version-url
+V 82
+/repos/dora/!svn/ver/38/DoraFinal/src/com/lego/minddroid/UploadThreadListener.java
+END
+LCPMessage.java
+K 25
+svn:wc:ra_dav:version-url
+V 72
+/repos/dora/!svn/ver/38/DoraFinal/src/com/lego/minddroid/LCPMessage.java
+END
+Options.java
+K 25
+svn:wc:ra_dav:version-url
+V 69
+/repos/dora/!svn/ver/38/DoraFinal/src/com/lego/minddroid/Options.java
+END
+DialogListener.java
+K 25
+svn:wc:ra_dav:version-url
+V 76
+/repos/dora/!svn/ver/38/DoraFinal/src/com/lego/minddroid/DialogListener.java
+END
+UploadThread.java
+K 25
+svn:wc:ra_dav:version-url
+V 74
+/repos/dora/!svn/ver/38/DoraFinal/src/com/lego/minddroid/UploadThread.java
+END
+BTCommunicator.java
+K 25
+svn:wc:ra_dav:version-url
+V 76
+/repos/dora/!svn/ver/38/DoraFinal/src/com/lego/minddroid/BTCommunicator.java
+END
+EnableBT.java
+K 25
+svn:wc:ra_dav:version-url
+V 70
+/repos/dora/!svn/ver/38/DoraFinal/src/com/lego/minddroid/EnableBT.java
+END
+DeviceListActivity.java
+K 25
+svn:wc:ra_dav:version-url
+V 80
+/repos/dora/!svn/ver/38/DoraFinal/src/com/lego/minddroid/DeviceListActivity.java
+END
+BTConnectable.java
+K 25
+svn:wc:ra_dav:version-url
+V 75
+/repos/dora/!svn/ver/38/DoraFinal/src/com/lego/minddroid/BTConnectable.java
+END
