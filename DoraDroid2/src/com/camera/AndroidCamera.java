@@ -11,6 +11,7 @@ import android.content.ContentValues;
 import android.content.pm.ActivityInfo;
 import android.graphics.PixelFormat;
 import android.hardware.Camera;
+import android.hardware.Camera.Parameters;
 import android.hardware.Camera.PictureCallback;
 import android.hardware.Camera.ShutterCallback;
 import android.net.Uri;
@@ -57,7 +58,7 @@ public class AndroidCamera extends Activity implements SurfaceHolder.Callback {
 		buttonTakePicture.setOnClickListener(new Button.OnClickListener() {
 
 			public void onClick(View arg0) {
-				// TODO Auto-generated method stub
+				// TODO Auto-generated method stubW
 				camera.takePicture(myShutterCallback, myPictureCallback_RAW,
 						myPictureCallback_JPG);
 			}
@@ -118,6 +119,12 @@ public class AndroidCamera extends Activity implements SurfaceHolder.Callback {
 	public void surfaceChanged(SurfaceHolder holder, int format, int width,
 			int height) {
 		// TODO Auto-generated method stub
+		
+//		Parameters params = camera.getParameters();
+//        params.setPreviewSize(width, height);
+//        params.setPictureFormat(PixelFormat.JPEG);
+//        camera.setParameters(params);
+		
 		if (previewing) {
 			camera.stopPreview();
 			previewing = false;
