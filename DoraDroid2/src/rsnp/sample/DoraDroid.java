@@ -26,7 +26,6 @@ import java.util.Locale;
 import org.robotservices.v02.IAsyncCallBack;
 import org.robotservices.v02.profile.common.Ret_value;
 
-import com.camera.AndroidCamera;
 import com.fujitsu.rsi.helper.ContentsProfileHelper;
 
 //import com.lego.minddroid.Lama;
@@ -71,7 +70,6 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 public class DoraDroid extends Activity implements BTConnectable {
-	// GPSTracker class
 
 	private static final int REQUEST_CONNECT_DEVICE = 1000;
 	private static final int REQUEST_ENABLE_BT = 2000;
@@ -105,8 +103,10 @@ public class DoraDroid extends Activity implements BTConnectable {
 	private static final int MAX_PROGRAMS = 20;
 	private static String programToStart;
 
+
 	/** to test /robotcamera */
 	private SurfaceScribeView scribeView;
+	private CameraSurfaceView cameraview;
 	/** RSNP controller */
 	private RSNPController rsnp;
 	public Button button;
@@ -124,7 +124,6 @@ public class DoraDroid extends Activity implements BTConnectable {
 		 */
 		@Override
 		public void onInit(int status) {
-
 			if (status == TextToSpeech.SUCCESS) {
 
 				tts.setLanguage(Locale.ENGLISH);
@@ -212,12 +211,15 @@ public class DoraDroid extends Activity implements BTConnectable {
 
 		tts = new TextToSpeech(getApplicationContext(), ttsInitListener);
 		rsnp = new RSNPController(callback);
-		scribeView = new SurfaceScribeView(this);
+		//scribeView = new SurfaceScribeView(this);
 		// ObjectHolderÃ£ï¿½Â«Ã§â„¢Â»Ã©Å’Â²
-		ObjectHolder.getInstance().add(ImageProvidor.class.getName(), scribeView);
+		//ObjectHolder.getInstance().add(ImageProvidor.class.getName(), scribeView);
+		cameraview = new CameraSurfaceView(this);
+		ObjectHolder.getInstance().add(ImageProvidor.class.getName(), cameraview);
 
 		LinearLayout layout = (LinearLayout) findViewById(R.id.layoutMain);
-		layout.addView(scribeView);
+		//layout.addView(scribeView);
+		layout.addView(cameraview);
 
 		//thisActivity = this;
 		mRobotType = this.getIntent().getIntExtra(DoraDroid.MINDDROID_ROBOT_TYPE, R.id.robot_type_1);
@@ -245,6 +247,10 @@ public class DoraDroid extends Activity implements BTConnectable {
 		button = (Button) findViewById(R.id.back_button);
 		button.setOnClickListener(new View.OnClickListener() {
 			public void onClick(View arg0) {updateMotorControl(-20,-20);}
+		});
+		button = (Button) findViewById(R.id.take_image_button);
+		button.setOnClickListener(new View.OnClickListener() {
+			public void onClick(View arg0) {cameraview.takeImage();}
 		});
 		reusableToast = Toast.makeText(this, "", Toast.LENGTH_SHORT);
 	}
@@ -453,7 +459,7 @@ public class DoraDroid extends Activity implements BTConnectable {
 			selectNXT();
 		}
 		//if (!rsnp.isConnected()) {
-			//System.out.println("Connecting");
+		//System.out.println("Connecting");
 		//rsnp.connect();
 		//}
 	}
@@ -620,7 +626,7 @@ public class DoraDroid extends Activity implements BTConnectable {
 	public boolean onOptionsItemSelected(MenuItem item) {
 		switch (item.getItemId()) {
 		case R.id.rsnp_connect:
-			
+
 			dialog = new Dialog(this);
 			dialog.setContentView(R.layout.dialog);
 			dialog.setTitle("Change IP");
@@ -638,14 +644,14 @@ public class DoraDroid extends Activity implements BTConnectable {
 			dialog.show();
 
 			rsnp.connect();
-			scribeView.setBackColor(Color.WHITE);
+			//scribeView.setBackColor(Color.WHITE);
 			return true;
 		case R.id.rsnp_disconnect:
 			rsnp.disconnect();
-			scribeView.setBackColor(Color.GRAY);
+			//scribeView.setBackColor(Color.GRAY);
 			return true;
 		case R.id.clear:
-			scribeView.clearStrokes();
+			//scribeView.clearStrokes();
 			return true;
 		case R.id.quit:
 			destroyBTCommunicator();
@@ -654,10 +660,6 @@ public class DoraDroid extends Activity implements BTConnectable {
 				BluetoothAdapter.getDefaultAdapter().disable();
 				btOnByUs=false;
 			}
-			finish();
-			return true;
-		case R.id.takepic:
-			startActivity(new Intent(DoraDroid.this, AndroidCamera.class));
 			finish();
 			return true;
 		default:

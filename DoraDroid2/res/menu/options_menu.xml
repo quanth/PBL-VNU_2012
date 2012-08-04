@@ -19,9 +19,4 @@
 	    android:visible="true" 
 	    android:id="@+id/quit" 
 	    android:enabled="true" />
-	
-	<item android:title="Take Picture" 
-	    android:visible="true" 
-	    android:id="@+id/takepic" 
-	    android:enabled="true" />
 </menu>
