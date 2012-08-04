@@ -1,0 +1,150 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:cp="http://www.robotservices.org/schemas/V02/Common_profile" xmlns:ip="http://www.robotservices.org/schemas/V02/Information_profile" xmlns:tp="http://www.robotservices.org/schemas/V02/Task_profile" attributeFormDefault="unqualified" elementFormDefault="qualified" targetNamespace="http://www.robotservices.org/schemas/V02/Common_profile">
+    <xs:import namespace="http://www.robotservices.org/schemas/V02/Information_profile" schemaLocation="Information_profile.xsd"/>
+    <xs:import namespace="http://www.robotservices.org/schemas/V02/Task_profile" schemaLocation="Task_profile.xsd"/>
+    <xs:element name="robo_header">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element fixed="2.0" name="version" type="xs:string"/>
+                <xs:element name="direction" type="xs:string"/>
+                <xs:element name="message_type" type="xs:string"/>
+                <xs:element name="message_id" type="xs:string"/>
+                <xs:element name="reply_to_message_id" type="xs:string"/>
+                <xs:element name="last_reply" nillable="true" type="xs:boolean"/>
+                <xs:element name="timestamp" type="xs:string"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="attached_files">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element maxOccurs="unbounded" ref="cp:attached_file"/>
+            </xs:sequence>
+            <xs:attribute name="file_count" type="xs:int" use="required"/>
+            <xs:attribute name="mime_type" type="xs:string" use="optional"/>
+            <xs:attribute name="capture_time" type="xs:string" use="optional"/>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="attached_file">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="mime_type" type="xs:string"/>
+                <xs:element name="file_name" type="xs:string"/>
+                <xs:element name="capture_time" type="xs:string"/>
+                <xs:element name="byte_array" type="xs:string"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="Ret_value">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element ref="cp:robo_header"/>
+                <xs:element name="error_no" type="xs:long"/>
+                <xs:element minOccurs="0" name="message_id" type="xs:long"/>
+                <xs:element minOccurs="0" name="detail_info">
+                    <xs:complexType>
+                        <xs:choice>
+                            <xs:element name="detail" nillable="true" type="xs:string"/>
+                            <xs:element name="conv_id" type="xs:long"/>
+                            <xs:element name="hash" type="xs:string"/>
+                            <xs:element maxOccurs="unbounded" minOccurs="0" name="operation" type="xs:string"/>
+                            <xs:element name="authenticated" type="xs:boolean"/>
+                            <xs:element ref="ip:robo_info"/>
+                            <xs:element ref="ip:user_info"/>
+                            <xs:element ref="ip:access_info"/>
+                            <xs:element ref="ip:environment_info"/>
+                            <xs:element ref="ip:ISP_info"/>
+                            <xs:element ref="ip:network_info"/>
+                            <xs:element ref="ip:TCPIP_info"/>
+                            <xs:element ref="ip:proxy_info"/>
+                            <xs:element ref="ip:firewall_info"/>
+                            <xs:element ref="ip:security_info"/>
+                            <xs:element ref="ip:WSR_info"/>
+                            <xs:element name="item_data" type="xs:string"/>
+                            <xs:element maxOccurs="unbounded" name="get_info_result">
+                                <xs:complexType>
+                                    <xs:sequence>
+                                        <xs:element name="info_name" type="xs:string"/>
+                                        <xs:element name="info_data">
+                                            <xs:complexType>
+                                                <xs:choice>
+                                                    <xs:element ref="ip:robo_info"/>
+                                                    <xs:element ref="ip:user_info"/>
+                                                    <xs:element ref="ip:access_info"/>
+                                                    <xs:element ref="ip:environment_info"/>
+                                                    <xs:element ref="ip:ISP_info"/>
+                                                    <xs:element ref="ip:network_info"/>
+                                                    <xs:element ref="ip:TCPIP_info"/>
+                                                    <xs:element ref="ip:proxy_info"/>
+                                                    <xs:element ref="ip:firewall_info"/>
+                                                    <xs:element ref="ip:security_info"/>
+                                                    <xs:element ref="ip:WSR_info"/>
+                                                </xs:choice>
+                                            </xs:complexType>
+                                        </xs:element>
+                                    </xs:sequence>
+                                </xs:complexType>
+                            </xs:element>
+                            <xs:element maxOccurs="unbounded" minOccurs="0" ref="tp:service"/>
+                            <xs:element maxOccurs="unbounded" minOccurs="0" name="service_id" type="xs:int"/>
+                            <xs:element name="service_err_info">
+                                <xs:complexType>
+                                    <xs:sequence>
+                                        <xs:element name="detail" nillable="true" type="xs:string"/>
+                                        <xs:element maxOccurs="unbounded" minOccurs="0" name="service_id" type="xs:int"/>
+                                    </xs:sequence>
+                                </xs:complexType>
+                            </xs:element>
+                            <xs:element name="schedule_info">
+                                <xs:complexType>
+                                    <xs:sequence>
+                                        <xs:element maxOccurs="unbounded" ref="tp:schedule"/>
+                                        <xs:element maxOccurs="unbounded" ref="tp:reserve"/>
+                                    </xs:sequence>
+                                </xs:complexType>
+                            </xs:element>
+                            <xs:element name="schedule_err_info">
+                                <xs:complexType>
+                                    <xs:sequence>
+                                        <xs:element name="detail" nillable="true" type="xs:string"/>
+                                        <xs:element maxOccurs="unbounded" minOccurs="0" name="schedule_id" type="xs:long"/>
+                                    </xs:sequence>
+                                </xs:complexType>
+                            </xs:element>
+                            <xs:element name="reserve_err_info">
+                                <xs:complexType>
+                                    <xs:sequence>
+                                        <xs:element name="detail" nillable="true" type="xs:string"/>
+                                        <xs:element maxOccurs="unbounded" minOccurs="0" name="reserve_id" type="xs:long"/>
+                                    </xs:sequence>
+                                </xs:complexType>
+                            </xs:element>
+                            <xs:element ref="tp:robot_state"/>
+                            <xs:element maxOccurs="unbounded" minOccurs="0" ref="tp:event"/>
+                            <xs:element maxOccurs="unbounded" minOccurs="0" ref="tp:event_handler"/>
+                            <xs:element name="event_err_info">
+                                <xs:complexType>
+                                    <xs:sequence>
+                                        <xs:element name="detail" nillable="true" type="xs:string"/>
+                                        <xs:element maxOccurs="unbounded" minOccurs="0" name="handler_id" type="xs:long"/>
+                                    </xs:sequence>
+                                </xs:complexType>
+                            </xs:element>
+                        </xs:choice>
+                    </xs:complexType>
+                </xs:element>
+                <xs:element minOccurs="0" ref="cp:attached_files"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="rsi_fault">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element ref="cp:robo_header"/>
+                <xs:element name="code" type="xs:string"/>
+                <xs:element name="message" type="xs:string"/>
+                <xs:element name="detail" type="xs:string"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+</xs:schema>

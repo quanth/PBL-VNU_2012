@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- This file was auto-generated from WSDL -->
+<!-- by the Apache Axis2 version: 1.4.1  Built on : Aug 13, 2008 (05:03:35 LKT) -->
+<serviceGroup>
+    <service name="UpChannelService" scope="transportsession">
+        <messageReceivers>
+            <messageReceiver mep="http://www.w3.org/ns/wsdl/in-out" class="com.fujitsu.rsi.server.UpChannelServiceMessageReceiverInOut"/>
+        </messageReceivers>
+        <parameter name="ServiceClass">com.fujitsu.rsi.server.UpChannelService</parameter>
+        <parameter name="useOriginalwsdl">true</parameter>
+        <parameter name="modifyUserWSDLPortAddress">true</parameter>
+        <operation name="putMessage" mep="http://www.w3.org/ns/wsdl/in-out" namespace="http://www.robotservices.org/schemas">
+            <actionMapping>urn:putMessage</actionMapping>
+            <outputActionMapping>urn:putMessageResponse</outputActionMapping>
+        </operation>
+    </service>
+</serviceGroup>

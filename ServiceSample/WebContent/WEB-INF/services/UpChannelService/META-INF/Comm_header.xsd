@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<xs:schema targetNamespace="http://www.robotservices.org/schemas/V02/Comm_header" xmlns="http://www.robotservices.org/schemas/V02/Comm_header"
+ xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified">
+ <xs:element name="comm_header">
+  <xs:complexType>
+   <xs:sequence>
+    <xs:element name="comm_id" type="xs:string" minOccurs="0" />
+    <xs:element name="message_identifier" type="xs:string" />
+   </xs:sequence>
+  </xs:complexType>
+ </xs:element>
+</xs:schema>

@@ -1,0 +1,371 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:cp="http://www.robotservices.org/schemas/V02/Common_profile" xmlns:tp="http://www.robotservices.org/schemas/V02/Task_profile" attributeFormDefault="unqualified" elementFormDefault="qualified" targetNamespace="http://www.robotservices.org/schemas/V02/Task_profile">
+    <xs:import namespace="http://www.robotservices.org/schemas/V02/Common_profile" schemaLocation="Common_profile.xsd"/>
+    <xs:element name="service">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="id" type="xs:int"/>
+                <xs:element name="name" type="xs:string"/>
+                <xs:element name="detail" type="xs:string"/>
+                <xs:element name="span" type="xs:string"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="robot_state">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="busy" type="xs:boolean"/>
+                <xs:element name="id" type="xs:int"/>
+                <xs:element name="state" type="xs:string"/>
+                <xs:element name="detail" type="xs:string"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="schedule">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="schedule_id" type="xs:long"/>
+                <xs:element name="date" type="xs:string"/>
+                <xs:element name="start_time" type="xs:string"/>
+                <xs:element name="end_time" type="xs:string"/>
+                <xs:element name="service_id" type="xs:int"/>
+                <xs:element name="reserve_id" type="xs:long"/>
+                <xs:element name="reserved" type="xs:boolean"/>
+                <xs:element name="state" type="xs:string"/>
+                <xs:element name="priority" type="xs:int"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="reserve">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="reserve_id" type="xs:long"/>
+                <xs:element name="operation" type="xs:int"/>
+                <xs:element name="reserve_info">
+                    <xs:complexType>
+                        <xs:choice minOccurs="0">
+                            <xs:element ref="tp:reserve_by_date"/>
+                            <xs:element ref="tp:reserve_by_week"/>
+                            <xs:element ref="tp:reserve_by_month"/>
+                            <xs:element ref="tp:reserve_by_year"/>
+                        </xs:choice>
+                    </xs:complexType>
+                </xs:element>
+                <xs:element name="start_date" type="xs:string"/>
+                <xs:element name="end_date" type="xs:string"/>
+                <xs:element name="start_time" type="xs:string"/>
+                <xs:element name="span" type="xs:string"/>
+                <xs:element name="service_id" type="xs:int"/>
+                <xs:element name="priority" type="xs:int"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="reserve_by_date">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="interval" type="xs:int"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="reserve_by_week">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="interval" type="xs:int"/>
+                <xs:element name="day_of_week">
+                    <xs:simpleType>
+                        <xs:restriction base="xs:string">
+                            <xs:length value="7"/>
+                        </xs:restriction>
+                    </xs:simpleType>
+                </xs:element>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="reserve_by_month">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="interval" type="xs:int"/>
+                <xs:choice>
+                    <xs:element ref="tp:reserve_day_of_month"/>
+                    <xs:element ref="tp:reserve_week_of_month"/>
+                </xs:choice>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="reserve_day_of_month">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="day_of_month">
+                    <xs:simpleType>
+                        <xs:restriction base="xs:string">
+                            <xs:length value="31"/>
+                        </xs:restriction>
+                    </xs:simpleType>
+                </xs:element>
+                <xs:element name="last_day" type="xs:boolean"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="reserve_week_of_month">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="day_of_week">
+                    <xs:simpleType>
+                        <xs:restriction base="xs:string">
+                            <xs:length value="7"/>
+                        </xs:restriction>
+                    </xs:simpleType>
+                </xs:element>
+                <xs:element maxOccurs="unbounded" name="num_of_week" type="xs:int"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="reserve_by_year">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="interval" type="xs:int"/>
+                <xs:element maxOccurs="unbounded" name="date" type="xs:string"/>
+                <xs:element name="last_day">
+                    <xs:simpleType>
+                        <xs:restriction base="xs:string">
+                            <xs:length value="12"/>
+                        </xs:restriction>
+                    </xs:simpleType>
+                </xs:element>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="event">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="event_id" type="xs:int"/>
+                <xs:element name="event_name" type="xs:string"/>
+                <xs:element name="event_detail" type="xs:string"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="event_handler">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="handler_id" type="xs:long"/>
+                <xs:element name="operation" type="xs:int"/>
+                <xs:element name="event_id" type="xs:int"/>
+                <xs:element name="service_id" type="xs:int"/>
+                <xs:element name="priority" type="xs:int"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="start_profile">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element ref="cp:robo_header"/>
+                <xs:element name="conv_id" type="xs:long"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="stop_profile">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element ref="cp:robo_header"/>
+                <xs:element name="conv_id" type="xs:long"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="get_permission">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element ref="cp:robo_header"/>
+                <xs:element name="conv_id" type="xs:long"/>
+                <xs:element name="signature" type="xs:string"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="notify_robot_state">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element ref="cp:robo_header"/>
+                <xs:element name="conv_id" type="xs:long"/>
+                <xs:element ref="tp:robot_state"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="get_custom_list">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element ref="cp:robo_header"/>
+                <xs:element name="conv_id" type="xs:long"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="get_service_file">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element ref="cp:robo_header"/>
+                <xs:element name="conv_id" type="xs:long"/>
+                <xs:element maxOccurs="unbounded" name="service_id" type="xs:int"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="set_service_file">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element ref="cp:robo_header"/>
+                <xs:element name="conv_id" type="xs:long"/>
+                <xs:element maxOccurs="unbounded" ref="tp:service"/>
+                <xs:element maxOccurs="unbounded" ref="cp:attached_file"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="cancel_service">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element ref="cp:robo_header"/>
+                <xs:element name="conv_id" type="xs:long"/>
+                <xs:element maxOccurs="unbounded" name="service_id" type="xs:int"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="replace_service_file">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element ref="cp:robo_header"/>
+                <xs:element name="conv_id" type="xs:long"/>
+                <xs:element maxOccurs="unbounded" ref="tp:service"/>
+                <xs:element maxOccurs="unbounded" ref="cp:attached_file"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="delete_service">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element ref="cp:robo_header"/>
+                <xs:element name="conv_id" type="xs:long"/>
+                <xs:element maxOccurs="unbounded" name="service_id" type="xs:int"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="get_service_list">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element ref="cp:robo_header"/>
+                <xs:element name="conv_id" type="xs:long"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="get_schedule">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element ref="cp:robo_header"/>
+                <xs:element name="conv_id" type="xs:long"/>
+                <xs:element name="from_datetime" type="xs:dateTime"/>
+                <xs:element name="to_datetime" type="xs:dateTime"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="replace_schedule">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element ref="cp:robo_header"/>
+                <xs:element name="conv_id" type="xs:long"/>
+                <xs:element maxOccurs="unbounded" ref="tp:schedule"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="delete_schedule">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element ref="cp:robo_header"/>
+                <xs:element name="conv_id" type="xs:long"/>
+                <xs:element maxOccurs="unbounded" name="schedule_id" type="xs:long"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="set_schedule">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element ref="cp:robo_header"/>
+                <xs:element name="conv_id" type="xs:long"/>
+                <xs:element maxOccurs="unbounded" ref="tp:reserve"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="delete_reservation">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element ref="cp:robo_header"/>
+                <xs:element name="conv_id" type="xs:long"/>
+                <xs:element maxOccurs="unbounded" name="reserve_id" type="xs:long"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="execute_service">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element ref="cp:robo_header"/>
+                <xs:element name="conv_id" type="xs:long"/>
+                <xs:element name="service_id" type="xs:int"/>
+                <xs:element name="priority" type="xs:int"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="stop_service">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element ref="cp:robo_header"/>
+                <xs:element name="conv_id" type="xs:long"/>
+                <xs:element name="priority" type="xs:int"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="get_event_list">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element ref="cp:robo_header"/>
+                <xs:element name="conv_id" type="xs:long"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="get_event_driven_service">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element ref="cp:robo_header"/>
+                <xs:element name="conv_id" type="xs:long"/>
+                <xs:element maxOccurs="unbounded" name="event_id" type="xs:int"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="set_event_driven_service">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element ref="cp:robo_header"/>
+                <xs:element name="conv_id" type="xs:long"/>
+                <xs:element maxOccurs="unbounded" ref="tp:event_handler"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="delete_event_driven_service">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element ref="cp:robo_header"/>
+                <xs:element name="conv_id" type="xs:long"/>
+                <xs:element maxOccurs="unbounded" name="handler_id" type="xs:long"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="monitor_service">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element ref="cp:robo_header"/>
+                <xs:element name="conv_id" type="xs:long"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="stop_monitor_service">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element ref="cp:robo_header"/>
+                <xs:element name="conv_id" type="xs:long"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+</xs:schema>

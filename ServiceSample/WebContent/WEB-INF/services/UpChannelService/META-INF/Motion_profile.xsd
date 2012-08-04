@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns="http://www.robotservices.org/schemas/V02/Motion_profile" xmlns:cp="http://www.robotservices.org/schemas/V02/Common_profile" attributeFormDefault="unqualified" elementFormDefault="qualified" targetNamespace="http://www.robotservices.org/schemas/V02/Motion_profile">
+    <xs:import namespace="http://www.robotservices.org/schemas/V02/Common_profile" schemaLocation="Common_profile.xsd"/>
+    <xs:element name="start_profile">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element ref="cp:robo_header"/>
+                <xs:element name="conv_id" type="xs:long"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="stop_profile">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element ref="cp:robo_header"/>
+                <xs:element name="conv_id" type="xs:long"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="get_permission">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element ref="cp:robo_header"/>
+                <xs:element name="conv_id" type="xs:long"/>
+                <xs:element name="signature" type="xs:string"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="forward">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element ref="cp:robo_header"/>
+                <xs:element name="conv_id" type="xs:long"/>
+                <xs:element name="value" type="xs:int"/>
+                <xs:element name="options" nillable="true" type="xs:string"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="backward">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element ref="cp:robo_header"/>
+                <xs:element name="conv_id" type="xs:long"/>
+                <xs:element name="value" type="xs:int"/>
+                <xs:element name="options" nillable="true" type="xs:string"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="right">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element ref="cp:robo_header"/>
+                <xs:element name="conv_id" type="xs:long"/>
+                <xs:element name="radius" type="xs:int"/>
+                <xs:element name="degree" type="xs:int"/>
+                <xs:element name="options" nillable="true" type="xs:string"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="left">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element ref="cp:robo_header"/>
+                <xs:element name="conv_id" type="xs:long"/>
+                <xs:element name="radius" type="xs:int"/>
+                <xs:element name="degree" type="xs:int"/>
+                <xs:element name="options" nillable="true" type="xs:string"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="spin_right">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element ref="cp:robo_header"/>
+                <xs:element name="conv_id" type="xs:long"/>
+                <xs:element name="degree" type="xs:int"/>
+                <xs:element name="options" nillable="true" type="xs:string"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="spin_left">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element ref="cp:robo_header"/>
+                <xs:element name="conv_id" type="xs:long"/>
+                <xs:element name="degree" type="xs:int"/>
+                <xs:element name="options" nillable="true" type="xs:string"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="stop">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element ref="cp:robo_header"/>
+                <xs:element name="conv_id" type="xs:long"/>
+                <xs:element name="options" nillable="true" type="xs:string"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="get_motion_info">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element ref="cp:robo_header"/>
+                <xs:element name="conv_id" type="xs:long"/>
+                <xs:element name="options" nillable="true" type="xs:string"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="shake">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element ref="cp:robo_header"/>
+                <xs:element name="conv_id" type="xs:long"/>
+                <xs:element name="body-parts" type="xs:long"/>
+                <xs:element name="direction" type="xs:long"/>
+                <xs:element name="value" type="xs:int"/>
+                <xs:element name="timing" type="xs:int"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="shake2">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element ref="cp:robo_header"/>
+                <xs:element name="conv_id" type="xs:long"/>
+                <xs:element name="body-parts" type="xs:long"/>
+                <xs:element name="direction" type="xs:long"/>
+                <xs:element name="degree" type="xs:int"/>
+                <xs:element name="speed" type="xs:int"/>
+                <xs:element name="timing" type="xs:int"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+</xs:schema>

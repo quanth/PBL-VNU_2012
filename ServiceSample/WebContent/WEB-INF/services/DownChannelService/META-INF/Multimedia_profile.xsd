@@ -1,0 +1,190 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns="http://www.robotservices.org/schemas/V02/Multimedia_profile" xmlns:cp="http://www.robotservices.org/schemas/V02/Common_profile" attributeFormDefault="unqualified" elementFormDefault="qualified" targetNamespace="http://www.robotservices.org/schemas/V02/Multimedia_profile">
+    <xs:import namespace="http://www.robotservices.org/schemas/V02/Common_profile" schemaLocation="Common_profile.xsd"/>
+    <xs:element name="start_profile">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element ref="cp:robo_header"/>
+                <xs:element name="conv_id" type="xs:long"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="stop_profile">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element ref="cp:robo_header"/>
+                <xs:element name="conv_id" type="xs:long"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="get_permission">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element ref="cp:robo_header"/>
+                <xs:element name="conv_id" type="xs:long"/>
+                <xs:element name="signature" type="xs:string"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="get_camera_image">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element ref="cp:robo_header"/>
+                <xs:element name="conv_id" type="xs:long"/>
+                <xs:element name="id" nillable="true" type="xs:string"/>
+                <xs:element name="options" nillable="true" type="xs:string"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="video_rec_start">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element ref="cp:robo_header"/>
+                <xs:element name="conv_id" type="xs:long"/>
+                <xs:element name="id" nillable="true" type="xs:string"/>
+                <xs:element name="options" nillable="true" type="xs:string"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="video_rec_stop">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element ref="cp:robo_header"/>
+                <xs:element name="conv_id" type="xs:long"/>
+                <xs:element name="id" nillable="true" type="xs:string"/>
+                <xs:element name="options" nillable="true" type="xs:string"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="camera_control">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element ref="cp:robo_header"/>
+                <xs:element name="conv_id" type="xs:long"/>
+                <xs:element name="id" nillable="true" type="xs:string"/>
+                <xs:element name="command" type="xs:string"/>
+                <xs:element name="options" nillable="true" type="xs:string"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="get_camera_info">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element ref="cp:robo_header"/>
+                <xs:element name="conv_id" type="xs:long"/>
+                <xs:element name="options" nillable="true" type="xs:string"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="distribute_camera_image">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element ref="cp:robo_header"/>
+                <xs:element name="conv_id" type="xs:long"/>
+                <xs:element name="distribution_id" type="xs:int"/>
+                <xs:element name="id" nillable="true" type="xs:string"/>
+                <xs:element name="span" nillable="true" type="xs:string"/>
+                <xs:element name="options" nillable="true" type="xs:string"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="stop_distribute_camera_image">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element ref="cp:robo_header"/>
+                <xs:element name="conv_id" type="xs:long"/>
+                <xs:element name="distribution_id" type="xs:int"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="sound_play">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element ref="cp:robo_header"/>
+                <xs:element name="conv_id" type="xs:long"/>
+                <xs:element name="id" nillable="true" type="xs:string"/>
+                <xs:element name="data" type="xs:string"/>
+                <xs:element name="options" nillable="true" type="xs:string"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="sound_stop">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element ref="cp:robo_header"/>
+                <xs:element name="conv_id" type="xs:long"/>
+                <xs:element name="id" nillable="true" type="xs:string"/>
+                <xs:element name="options" nillable="true" type="xs:string"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="sound_rec_start">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element ref="cp:robo_header"/>
+                <xs:element name="conv_id" type="xs:long"/>
+                <xs:element name="id" nillable="true" type="xs:string"/>
+                <xs:element name="options" nillable="true" type="xs:string"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="sound_rec_stop">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element ref="cp:robo_header"/>
+                <xs:element name="conv_id" type="xs:long"/>
+                <xs:element name="id" nillable="true" type="xs:string"/>
+                <xs:element name="options" nillable="true" type="xs:string"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="sound_control">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element ref="cp:robo_header"/>
+                <xs:element name="conv_id" type="xs:long"/>
+                <xs:element name="id" nillable="true" type="xs:string"/>
+                <xs:element name="command" type="xs:string"/>
+                <xs:element name="options" nillable="true" type="xs:string"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="get_sound_info">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element ref="cp:robo_header"/>
+                <xs:element name="conv_id" type="xs:long"/>
+                <xs:element name="options" nillable="true" type="xs:string"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="get_sensor_info">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element ref="cp:robo_header"/>
+                <xs:element name="conv_id" type="xs:long"/>
+                <xs:element name="id" nillable="true" type="xs:string"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="distribute_sensor_info">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element ref="cp:robo_header"/>
+                <xs:element name="conv_id" type="xs:long"/>
+                <xs:element name="distribution_id" type="xs:int"/>
+                <xs:element name="id" nillable="true" type="xs:string"/>
+                <xs:element name="span" nillable="true" type="xs:string"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="stop_distribute_sensor_info">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element ref="cp:robo_header"/>
+                <xs:element name="conv_id" type="xs:long"/>
+                <xs:element name="distribution_id" type="xs:int"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+</xs:schema>

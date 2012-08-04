@@ -1,0 +1,419 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns="http://www.robotservices.org/schemas/V02/Information_profile" xmlns:cp="http://www.robotservices.org/schemas/V02/Common_profile" attributeFormDefault="unqualified" elementFormDefault="qualified" targetNamespace="http://www.robotservices.org/schemas/V02/Information_profile">
+    <xs:import namespace="http://www.robotservices.org/schemas/V02/Common_profile" schemaLocation="Common_profile.xsd"/>
+    <xs:element name="robo_info">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="robo_name" nillable="true" type="xs:string"/>
+                <xs:element name="type_no" nillable="true" type="xs:string"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="user_info">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="user_name" nillable="true" type="xs:string"/>
+                <xs:element name="user_age" nillable="true" type="xs:string"/>
+                <xs:element name="user_sex" nillable="true" type="xs:string"/>
+                <xs:element name="user_address" nillable="true" type="xs:string"/>
+                <xs:element name="user_tel" nillable="true" type="xs:string"/>
+                <xs:element name="user_fax" nillable="true" type="xs:string"/>
+                <xs:element name="user_mail" nillable="true" type="xs:string"/>
+                <xs:element name="user_job" nillable="true" type="xs:string"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="access_info">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="URL_name" nillable="true" type="xs:string"/>
+                <xs:element name="access_level" nillable="true" type="xs:string"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="environment_info">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="country_name" nillable="true" type="xs:string"/>
+                <xs:element name="latitude" nillable="true" type="xs:string"/>
+                <xs:element name="longitude" nillable="true" type="xs:string"/>
+                <xs:element name="difference_time" nillable="true" type="xs:string"/>
+                <xs:element name="place_type" nillable="true" type="xs:string"/>
+                <xs:element name="move_flag" nillable="true" type="xs:string"/>
+                <xs:element name="use_flag" nillable="true" type="xs:string"/>
+                <xs:element name="wireless_phone" nillable="true" type="xs:string"/>
+                <xs:element name="power_station" nillable="true" type="xs:string"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="ISP_info">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="ISP_name" nillable="true" type="xs:string"/>
+                <xs:element name="service_name" nillable="true" type="xs:string"/>
+                <xs:element name="service_url" nillable="true" type="xs:string"/>
+                <xs:element name="contact_user" nillable="true" type="xs:string"/>
+                <xs:element name="contact_id" nillable="true" type="xs:string"/>
+                <xs:element name="pay_type" nillable="true" type="xs:string"/>
+                <xs:element name="price_type" nillable="true" type="xs:string"/>
+                <xs:element name="price_plan" nillable="true" type="xs:string"/>
+                <xs:element name="start_date" nillable="true" type="xs:string"/>
+                <xs:element name="limit_date" nillable="true" type="xs:string"/>
+                <xs:element name="used_count" nillable="true" type="xs:string"/>
+                <xs:element name="used_time" nillable="true" type="xs:string"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="network_info">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="interface_type" nillable="true" type="xs:string"/>
+                <xs:element name="standard_type" nillable="true" type="xs:string"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="TCPIP_info">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="IP_address" nillable="true" type="xs:string"/>
+                <xs:element name="subnet_mask" nillable="true" type="xs:string"/>
+                <xs:element name="default_gateway" nillable="true" type="xs:string"/>
+                <xs:element name="first_dns" nillable="true" type="xs:string"/>
+                <xs:element name="second_dns" nillable="true" type="xs:string"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="proxy_info">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="proxy_flag" nillable="true" type="xs:string"/>
+                <xs:element name="proxy_host" nillable="true" type="xs:string"/>
+                <xs:element name="proxy_port" nillable="true" type="xs:string"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="firewall_info">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="firewall_flag" nillable="true" type="xs:string"/>
+                <xs:element name="firewall_type" nillable="true" type="xs:string"/>
+                <xs:element name="firewall_host" nillable="true" type="xs:string"/>
+                <xs:element name="firewall_port" nillable="true" type="xs:string"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="security_info">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="security_flag" nillable="true" type="xs:string"/>
+                <xs:element name="security_type" nillable="true" type="xs:string"/>
+                <xs:element name="security_word" nillable="true" type="xs:string"/>
+                <xs:element name="security_keylength" nillable="true" type="xs:string"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="WSR_info">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="WSR_flag" nillable="true" type="xs:string"/>
+                <xs:element name="WSR_name" nillable="true" type="xs:string"/>
+                <xs:element name="WSR_version" nillable="true" type="xs:string"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="start_profile">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element ref="cp:robo_header"/>
+                <xs:element name="conv_id" type="xs:long"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="stop_profile">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element ref="cp:robo_header"/>
+                <xs:element name="conv_id" type="xs:long"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="get_permission">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element ref="cp:robo_header"/>
+                <xs:element name="conv_id" type="xs:long"/>
+                <xs:element name="signature" type="xs:string"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="get_item">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element ref="cp:robo_header"/>
+                <xs:element name="conv_id" type="xs:long"/>
+                <xs:element name="info_name" type="xs:string"/>
+                <xs:element name="item_name" type="xs:string"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="get_info">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element ref="cp:robo_header"/>
+                <xs:element name="conv_id" type="xs:long"/>
+                <xs:element maxOccurs="unbounded" name="info_name" type="xs:string"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="get_robo_info">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element ref="cp:robo_header"/>
+                <xs:element name="conv_id" type="xs:long"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="get_user_info">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element ref="cp:robo_header"/>
+                <xs:element name="conv_id" type="xs:long"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="get_access_info">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element ref="cp:robo_header"/>
+                <xs:element name="conv_id" type="xs:long"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="get_environment_info">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element ref="cp:robo_header"/>
+                <xs:element name="conv_id" type="xs:long"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="get_ISP_info">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element ref="cp:robo_header"/>
+                <xs:element name="conv_id" type="xs:long"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="get_network_info">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element ref="cp:robo_header"/>
+                <xs:element name="conv_id" type="xs:long"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="get_TCPIP_info">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element ref="cp:robo_header"/>
+                <xs:element name="conv_id" type="xs:long"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="get_proxy_info">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element ref="cp:robo_header"/>
+                <xs:element name="conv_id" type="xs:long"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="get_firewall_info">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element ref="cp:robo_header"/>
+                <xs:element name="conv_id" type="xs:long"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="get_security_info">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element ref="cp:robo_header"/>
+                <xs:element name="conv_id" type="xs:long"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="get_WSR_info">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element ref="cp:robo_header"/>
+                <xs:element name="conv_id" type="xs:long"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="set_item">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element ref="cp:robo_header"/>
+                <xs:element name="conv_id" type="xs:long"/>
+                <xs:element name="info_name" type="xs:string"/>
+                <xs:element name="item_name" type="xs:string"/>
+                <xs:element name="value" type="xs:string"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="set_robo_info">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element ref="cp:robo_header"/>
+                <xs:element name="conv_id" type="xs:long"/>
+                <xs:element name="robo_name" nillable="true" type="xs:string"/>
+                <xs:element name="type_no" nillable="true" type="xs:string"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="set_user_info">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element ref="cp:robo_header"/>
+                <xs:element name="conv_id" type="xs:long"/>
+                <xs:element name="user_name" nillable="true" type="xs:string"/>
+                <xs:element name="user_age" nillable="true" type="xs:string"/>
+                <xs:element name="user_sex" nillable="true" type="xs:string"/>
+                <xs:element name="user_address" nillable="true" type="xs:string"/>
+                <xs:element name="user_tel" nillable="true" type="xs:string"/>
+                <xs:element name="user_fax" nillable="true" type="xs:string"/>
+                <xs:element name="user_mail" nillable="true" type="xs:string"/>
+                <xs:element name="user_job" nillable="true" type="xs:string"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="set_access_info">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element ref="cp:robo_header"/>
+                <xs:element name="conv_id" type="xs:long"/>
+                <xs:element name="URL_name" nillable="true" type="xs:string"/>
+                <xs:element name="access_level" nillable="true" type="xs:string"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="set_environment_info">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element ref="cp:robo_header"/>
+                <xs:element name="conv_id" type="xs:long"/>
+                <xs:element name="country_name" nillable="true" type="xs:string"/>
+                <xs:element name="latitude" nillable="true" type="xs:string"/>
+                <xs:element name="longitude" nillable="true" type="xs:string"/>
+                <xs:element name="altitude" nillable="true" type="xs:string"/>
+                <xs:element name="difference_time" nillable="true" type="xs:string"/>
+                <xs:element name="place_type" nillable="true" type="xs:string"/>
+                <xs:element name="move_flag" nillable="true" type="xs:string"/>
+                <xs:element name="use_flag" nillable="true" type="xs:string"/>
+                <xs:element name="wireless_phone" nillable="true" type="xs:string"/>
+                <xs:element name="power_station" nillable="true" type="xs:string"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="set_ISP_info">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element ref="cp:robo_header"/>
+                <xs:element name="conv_id" type="xs:long"/>
+                <xs:element name="ISP_name" nillable="true" type="xs:string"/>
+                <xs:element name="service_name" nillable="true" type="xs:string"/>
+                <xs:element name="service_url" nillable="true" type="xs:string"/>
+                <xs:element name="contact_user" nillable="true" type="xs:string"/>
+                <xs:element name="contact_id" nillable="true" type="xs:string"/>
+                <xs:element name="pay_type" nillable="true" type="xs:string"/>
+                <xs:element name="price_type" nillable="true" type="xs:string"/>
+                <xs:element name="price_plan" nillable="true" type="xs:string"/>
+                <xs:element name="start_date" nillable="true" type="xs:string"/>
+                <xs:element name="limit_date" nillable="true" type="xs:string"/>
+                <xs:element name="used_count" nillable="true" type="xs:string"/>
+                <xs:element name="used_time" nillable="true" type="xs:string"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="set_network_info">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element ref="cp:robo_header"/>
+                <xs:element name="conv_id" type="xs:long"/>
+                <xs:element name="interface_type" nillable="true" type="xs:string"/>
+                <xs:element name="standard_type" nillable="true" type="xs:string"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="set_TCPIP_info">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element ref="cp:robo_header"/>
+                <xs:element name="conv_id" type="xs:long"/>
+                <xs:element name="IP_address" nillable="true" type="xs:string"/>
+                <xs:element name="subnet_mask" nillable="true" type="xs:string"/>
+                <xs:element name="default_gateway" nillable="true" type="xs:string"/>
+                <xs:element name="first_dns" nillable="true" type="xs:string"/>
+                <xs:element name="second_dns" nillable="true" type="xs:string"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="set_proxy_info">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element ref="cp:robo_header"/>
+                <xs:element name="conv_id" type="xs:long"/>
+                <xs:element name="proxy_flag" nillable="true" type="xs:string"/>
+                <xs:element name="proxy_host" nillable="true" type="xs:string"/>
+                <xs:element name="proxy_port" nillable="true" type="xs:string"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="set_firewall_info">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element ref="cp:robo_header"/>
+                <xs:element name="conv_id" type="xs:long"/>
+                <xs:element name="firewall_flag" nillable="true" type="xs:string"/>
+                <xs:element name="firewall_type" nillable="true" type="xs:string"/>
+                <xs:element name="firewall_host" nillable="true" type="xs:string"/>
+                <xs:element name="firewall_port" nillable="true" type="xs:string"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="set_security_info">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element ref="cp:robo_header"/>
+                <xs:element name="conv_id" type="xs:long"/>
+                <xs:element name="security_flag" nillable="true" type="xs:string"/>
+                <xs:element name="security_type" nillable="true" type="xs:string"/>
+                <xs:element name="security_word" nillable="true" type="xs:string"/>
+                <xs:element name="security_keylength" nillable="true" type="xs:string"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="set_WSR_info">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element ref="cp:robo_header"/>
+                <xs:element name="conv_id" type="xs:long"/>
+                <xs:element name="WSR_flag" nillable="true" type="xs:string"/>
+                <xs:element name="WSR_name" nillable="true" type="xs:string"/>
+                <xs:element name="WSR_version" nillable="true" type="xs:string"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="notifyState">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element ref="cp:robo_header"/>
+                <xs:element name="conv_id" type="xs:long"/>
+                <xs:element name="state" type="xs:string"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+</xs:schema>

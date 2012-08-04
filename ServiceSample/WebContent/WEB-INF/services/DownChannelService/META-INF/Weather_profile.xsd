@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns="http://www.robotservices.org/schemas/V02/Weather_profile" xmlns:cp="http://www.robotservices.org/schemas/V02/Common_profile" attributeFormDefault="unqualified" elementFormDefault="qualified" targetNamespace="http://www.robotservices.org/schemas/V02/Weather_profile">
+    <xs:import namespace="http://www.robotservices.org/schemas/V02/Common_profile" schemaLocation="Common_profile.xsd"/>
+    <xs:element name="weather_short_info">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="detail">
+                    <xs:complexType>
+                        <xs:sequence>
+                            <xs:element name="announce_time" type="xs:string"/>
+                            <xs:element name="max_temp" type="xs:string"/>
+                            <xs:element name="min_temp" nillable="true" type="xs:string"/>
+                            <xs:element name="prob_precip1" type="xs:string"/>
+                            <xs:element name="prob_precip2" type="xs:string"/>
+                            <xs:element name="prob_precip3" type="xs:string"/>
+                            <xs:element name="prob_precip4" type="xs:string"/>
+                            <xs:element name="weather_text1" type="xs:string"/>
+                            <xs:element name="weather_text2" type="xs:string"/>
+                            <xs:element name="weather_text3" nillable="true" type="xs:string"/>
+                            <xs:element name="telop_no1" type="xs:string"/>
+                            <xs:element name="telop_no2" type="xs:string"/>
+                            <xs:element name="telop_no3" nillable="true" type="xs:string"/>
+                            <xs:element name="wave_info1" type="xs:string"/>
+                            <xs:element name="wave_info2" type="xs:string"/>
+                            <xs:element name="wave_info3" nillable="true" type="xs:string"/>
+                            <xs:element name="wind_info1" type="xs:string"/>
+                            <xs:element name="wind_info2" type="xs:string"/>
+                            <xs:element name="wind_info3" nillable="true" type="xs:string"/>
+                            <xs:element name="note" nillable="true" type="xs:string"/>
+                            <xs:element name="exp" type="xs:string"/>
+                        </xs:sequence>
+                    </xs:complexType>
+                </xs:element>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="get_permission">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element ref="cp:robo_header"/>
+                <xs:element name="conv_id" type="xs:long"/>
+                <xs:element name="account" type="xs:string"/>
+                <xs:element name="password" type="xs:string"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="get_weather_short">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element ref="cp:robo_header"/>
+                <xs:element name="conv_id" type="xs:long"/>
+                <xs:element name="area" type="xs:string"/>
+                <xs:element name="point" type="xs:string"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+</xs:schema>

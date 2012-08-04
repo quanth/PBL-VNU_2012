@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:bp="http://www.robotservices.org/schemas/V02/Basic_profile" xmlns:cp="http://www.robotservices.org/schemas/V02/Common_profile" xmlns:ctp="http://www.robotservices.org/schemas/V02/Contents_profile" xmlns:ip="http://www.robotservices.org/schemas/V02/Information_profile" xmlns:mmp="http://www.robotservices.org/schemas/V02/Multimedia_profile" xmlns:mp="http://www.robotservices.org/schemas/V02/Motion_profile" xmlns:mpp="http://www.robotservices.org/schemas/V02/Motion_pattern_profile" xmlns:rsi="http://www.robotservices.org/schemas" xmlns:tp="http://www.robotservices.org/schemas/V02/Task_profile" xmlns:wp="http://www.robotservices.org/schemas/V02/Weather_profile" attributeFormDefault="unqualified" elementFormDefault="qualified" targetNamespace="http://www.robotservices.org/schemas">
+    <xs:import namespace="http://www.robotservices.org/schemas/V02/Common_profile" schemaLocation="Common_profile.xsd"/>
+    <xs:import namespace="http://www.robotservices.org/schemas/V02/Basic_profile" schemaLocation="Basic_profile.xsd"/>
+    <xs:import namespace="http://www.robotservices.org/schemas/V02/Information_profile" schemaLocation="Information_profile.xsd"/>
+    <xs:import namespace="http://www.robotservices.org/schemas/V02/Multimedia_profile" schemaLocation="Multimedia_profile.xsd"/>
+    <xs:import namespace="http://www.robotservices.org/schemas/V02/Motion_profile" schemaLocation="Motion_profile.xsd"/>
+    <xs:import namespace="http://www.robotservices.org/schemas/V02/Motion_pattern_profile" schemaLocation="Motion_pattern_profile.xsd"/>
+    <xs:import namespace="http://www.robotservices.org/schemas/V02/Contents_profile" schemaLocation="Contents_profile.xsd"/>
+    <xs:import namespace="http://www.robotservices.org/schemas/V02/Weather_profile" schemaLocation="Weather_profile.xsd"/>
+    <xs:import namespace="http://www.robotservices.org/schemas/V02/Task_profile" schemaLocation="Task_profile.xsd"/>
+    <xs:element name="RSi">
+        <xs:complexType>
+            <xs:choice minOccurs="0">
+                <xs:element ref="cp:Ret_value"/>
+                <xs:element ref="bp:open"/>
+                <xs:element ref="bp:challenge"/>
+                <xs:element ref="bp:close"/>
+                <xs:element ref="ip:start_profile"/>
+                <xs:element ref="ip:stop_profile"/>
+                <xs:element ref="ip:get_permission"/>
+                <xs:element ref="ip:get_item"/>
+                <xs:element ref="ip:get_info"/>
+                <xs:element ref="ip:get_robo_info"/>
+                <xs:element ref="ip:get_user_info"/>
+                <xs:element ref="ip:get_access_info"/>
+                <xs:element ref="ip:get_environment_info"/>
+                <xs:element ref="ip:get_ISP_info"/>
+                <xs:element ref="ip:get_network_info"/>
+                <xs:element ref="ip:get_TCPIP_info"/>
+                <xs:element ref="ip:get_proxy_info"/>
+                <xs:element ref="ip:get_firewall_info"/>
+                <xs:element ref="ip:get_security_info"/>
+                <xs:element ref="ip:get_WSR_info"/>
+                <xs:element ref="ip:set_item"/>
+                <xs:element ref="ip:set_robo_info"/>
+                <xs:element ref="ip:set_user_info"/>
+                <xs:element ref="ip:set_access_info"/>
+                <xs:element ref="ip:set_environment_info"/>
+                <xs:element ref="ip:set_ISP_info"/>
+                <xs:element ref="ip:set_network_info"/>
+                <xs:element ref="ip:set_TCPIP_info"/>
+                <xs:element ref="ip:set_proxy_info"/>
+                <xs:element ref="ip:set_firewall_info"/>
+                <xs:element ref="ip:set_security_info"/>
+                <xs:element ref="ip:set_WSR_info"/>
+                <xs:element ref="ip:notifyState"/>
+                <xs:element ref="ip:robo_info"/>
+                <xs:element ref="ip:user_info"/>
+                <xs:element ref="ip:access_info"/>
+                <xs:element ref="ip:environment_info"/>
+                <xs:element ref="ip:ISP_info"/>
+                <xs:element ref="ip:network_info"/>
+                <xs:element ref="ip:TCPIP_info"/>
+                <xs:element ref="ip:proxy_info"/>
+                <xs:element ref="ip:firewall_info"/>
+                <xs:element ref="ip:security_info"/>
+                <xs:element ref="ip:WSR_info"/>
+                <xs:element ref="mmp:start_profile"/>
+                <xs:element ref="mmp:stop_profile"/>
+                <xs:element ref="mmp:get_permission"/>
+                <xs:element ref="mmp:get_camera_image"/>
+                <xs:element ref="mmp:video_rec_start"/>
+                <xs:element ref="mmp:video_rec_stop"/>
+                <xs:element ref="mmp:camera_control"/>
+                <xs:element ref="mmp:get_camera_info"/>
+                <xs:element ref="mmp:distribute_camera_image"/>
+                <xs:element ref="mmp:stop_distribute_camera_image"/>
+                <xs:element ref="mmp:sound_play"/>
+                <xs:element ref="mmp:sound_stop"/>
+                <xs:element ref="mmp:sound_rec_start"/>
+                <xs:element ref="mmp:sound_rec_stop"/>
+                <xs:element ref="mmp:sound_control"/>
+                <xs:element ref="mmp:get_sound_info"/>
+                <xs:element ref="mmp:get_sensor_info"/>
+                <xs:element ref="mmp:distribute_sensor_info"/>
+                <xs:element ref="mmp:stop_distribute_sensor_info"/>
+                <xs:element ref="mp:start_profile"/>
+                <xs:element ref="mp:stop_profile"/>
+                <xs:element ref="mp:get_permission"/>
+                <xs:element ref="mp:forward"/>
+                <xs:element ref="mp:backward"/>
+                <xs:element ref="mp:right"/>
+                <xs:element ref="mp:left"/>
+                <xs:element ref="mp:spin_right"/>
+                <xs:element ref="mp:spin_left"/>
+                <xs:element ref="mp:stop"/>
+                <xs:element ref="mp:get_motion_info"/>
+                <xs:element ref="mp:shake"/>
+                <xs:element ref="mp:shake2"/>
+                <xs:element ref="mpp:start_profile"/>
+                <xs:element ref="mpp:stop_profile"/>
+                <xs:element ref="mpp:get_permission"/>
+                <xs:element ref="mpp:motion_by_pattern"/>
+                <xs:element ref="ctp:get_permission"/>
+                <xs:element ref="ctp:get_requirement_term_list"/>
+                <xs:element ref="ctp:get_contents"/>
+                <xs:element ref="ctp:distribute_contents"/>
+                <xs:element ref="ctp:stop_distribution"/>
+                <xs:element ref="wp:get_permission"/>
+                <xs:element ref="wp:get_weather_short"/>
+                <xs:element ref="tp:start_profile"/>
+                <xs:element ref="tp:stop_profile"/>
+                <xs:element ref="tp:get_permission"/>
+                <xs:element ref="tp:notify_robot_state"/>
+                <xs:element ref="tp:get_custom_list"/>
+                <xs:element ref="tp:get_service_file"/>
+                <xs:element ref="tp:set_service_file"/>
+                <xs:element ref="tp:cancel_service"/>
+                <xs:element ref="tp:replace_service_file"/>
+                <xs:element ref="tp:delete_service"/>
+                <xs:element ref="tp:get_service_list"/>
+                <xs:element ref="tp:get_schedule"/>
+                <xs:element ref="tp:replace_schedule"/>
+                <xs:element ref="tp:delete_schedule"/>
+                <xs:element ref="tp:set_schedule"/>
+                <xs:element ref="tp:delete_reservation"/>
+                <xs:element ref="tp:execute_service"/>
+                <xs:element ref="tp:stop_service"/>
+                <xs:element ref="tp:get_event_list"/>
+                <xs:element ref="tp:get_event_driven_service"/>
+                <xs:element ref="tp:set_event_driven_service"/>
+                <xs:element ref="tp:delete_event_driven_service"/>
+                <xs:element ref="tp:monitor_service"/>
+                <xs:element ref="cp:rsi_fault"/>
+            </xs:choice>
+        </xs:complexType>
+    </xs:element>
+</xs:schema>

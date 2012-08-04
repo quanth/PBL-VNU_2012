@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<xs:schema targetNamespace="http://www.robotservices.org/schemas/V02/Robot_control_profile" xmlns="http://www.robotservices.org/schemas/V02/Robot_control_profile"
+ xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:cp="http://www.robotservices.org/schemas/V02/Common_profile"
+ elementFormDefault="qualified">
+ <xs:import namespace="http://www.robotservices.org/schemas/V02/Common_profile" schemaLocation="./Common_profile.xsd" />
+
+ <!-- 継承する各プロファイルにそれぞれ記載する -->
+ <xs:element name="start_profile">
+  <xs:complexType>
+   <xs:sequence>
+    <xs:element ref="cp:robo_header" />
+    <xs:element name="conv_id" type="xs:long" />
+   </xs:sequence>
+  </xs:complexType>
+ </xs:element>
+ <xs:element name="stop_profile">
+  <xs:complexType>
+   <xs:sequence>
+    <xs:element ref="cp:robo_header" />
+    <xs:element name="conv_id" type="xs:long" />
+   </xs:sequence>
+  </xs:complexType>
+ </xs:element>
+ <xs:element name="get_permission">
+  <xs:complexType>
+   <xs:sequence>
+    <xs:element ref="cp:robo_header" />
+    <xs:element name="conv_id" type="xs:long" />
+    <xs:element name="signature" type="xs:string" />
+   </xs:sequence>
+  </xs:complexType>
+ </xs:element>
+</xs:schema>

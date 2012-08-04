@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE properties SYSTEM "http://java.sun.com/dtd/properties.dtd">
+<properties>
+	<comment>サーバ設定ファイル</comment>
+
+	<!-- 非同期チャネルのタイムアウト（秒単位） -->
+	<entry key="self_timeout">60</entry>
+
+	<!-- メッセージキュー挿入待ちタイムアウト（ミリ秒） -->
+	<entry key="queue_entry_timeout">300000</entry>
+	<!-- メッセージキューサイズ -->
+	<entry key="queue_entry_max">1000</entry>
+
+	<!-- プロファイル生成ファクトリ実装クラスの完全修飾クラス名 -->
+	<entry key="AcceptorProfileFactory">rsnp.acceptor.AcceptorProfileFactory_impl</entry>
+
+</properties>

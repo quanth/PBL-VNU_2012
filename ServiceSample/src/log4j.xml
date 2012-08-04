@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE log4j:configuration SYSTEM "log4j.dtd">
+<!--
+/*
+ * Copyright 2009 Fujitsu Limited.
+ * FUJITSU CONFIDENTIAL.
+ */
+-->
+<log4j:configuration xmlns:log4j='http://jakarta.apache.org/log4j/'>
+	<!--デバッグ向けの定義 -->
+	<appender name="STDOUT" class="org.apache.log4j.ConsoleAppender">
+		<!-- デフォルトのログレベル -->
+		<param name="Threshold" value="DEBUG" />
+
+		<!-- ログの出力形式を指定 -->
+		<layout class="org.apache.log4j.PatternLayout">
+			<param name="ConversionPattern" value="%d %-5p [%t] (%F:%L) - %m%n" />
+		</layout>
+	</appender>
+
+	<!--決められた期間でログを別ファイルに切り替えて書き込む
+        DailyRollingFileAppenderをDAILYとして定義 -->
+	<appender name="DAILY" class="org.apache.log4j.DailyRollingFileAppender">
+		<!-- ログのファイル名 -->
+		<param name="File" value="logs/robot-sample-log" />
+
+		<!-- デフォルトのログレベル -->
+		<param name="Threshold" value="TRACE" />
+
+		<!-- 日付が変わる瞬間daily-log-2002-06-23のような形式で
+            現在のログがリネーム -->
+		<param name="DatePattern" value="yyyy-MM-dd" />
+
+		<!-- すでにログが存在する場合、ファイルにログを追加 -->
+		<param name="Append" value="true" />
+
+		<!-- ログの出力形式を指定 -->
+		<layout class="org.apache.log4j.PatternLayout">
+			<param name="ConversionPattern" value="%d %-5p [%t] - %m%n" />
+		</layout>
+	</appender>
+
+	<!-- ロガーの設定 -->
+	<logger name="org.apache">
+		<level value="WARN" />
+		<appender-ref ref="STDOUT" />
+	</logger>
+	<logger name="httpclient">
+		<level value="WARN" />
+		<appender-ref ref="STDOUT" />
+	</logger>
+	<logger name="com.fujitsu">
+		<level value="WARN" />
+		<appender-ref ref="STDOUT" />
+	</logger>
+
+	<!-- すべてのログ -->
+	<root>
+		<level value="DEBUG" />
+		<appender-ref ref="STDOUT" />
+	</root>
+
+</log4j:configuration>
