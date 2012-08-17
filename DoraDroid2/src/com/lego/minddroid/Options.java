@@ -77,7 +77,6 @@ public class Options {
 	}
 
 	private OnClickListener radio_listener = new OnClickListener() {
-		@Override
 		public void onClick(View v) {
 			// Perform action on clicks
 			RadioButton rb = (RadioButton) v;

@@ -40,7 +40,6 @@ class CameraSurfaceView extends SurfaceView implements SurfaceHolder.Callback, I
     			public HandlePictureStorage(CameraSurfaceView cameraView) {
     				this.cameraView = cameraView;
     			}*/
-		@Override
 		public void onPictureTaken(byte[] picture, Camera camera) 
 		{                    
 			System.out.println("Picture successfully taken: "+picture);
@@ -84,7 +83,6 @@ class CameraSurfaceView extends SurfaceView implements SurfaceHolder.Callback, I
 		this.holder = this.getHolder();
 		this.holder.addCallback(this);
 		this.holder.setType(SurfaceHolder.SURFACE_TYPE_PUSH_BUFFERS);
-
 		this.semaphore = 0;
 	}
 
@@ -96,7 +94,6 @@ class CameraSurfaceView extends SurfaceView implements SurfaceHolder.Callback, I
 		//lock.unlock();
 	}
 
-	@Override
 	public void surfaceCreated(SurfaceHolder holder) 
 	{
 		try
@@ -113,7 +110,6 @@ class CameraSurfaceView extends SurfaceView implements SurfaceHolder.Callback, I
 		}
 	}
 
-	@Override
 	public void surfaceChanged(SurfaceHolder holder, int format, int width, int height) 
 	{
 		osb = null;
@@ -140,7 +136,6 @@ class CameraSurfaceView extends SurfaceView implements SurfaceHolder.Callback, I
 	}
 
 
-	@Override
 	public void surfaceDestroyed(SurfaceHolder holder) 
 	{
 		// Surface will be destroyed when replaced with a new screen
@@ -157,14 +152,12 @@ class CameraSurfaceView extends SurfaceView implements SurfaceHolder.Callback, I
 		return this.camera;
 	}
 
-	@Override
 	public void takeImage(){
 		System.err.println("takeImage");
 		Camera camera = this.getCamera();
 		// CameraSurfaceView.HandlePictureStorage c = this.new HandlePictureStorage();
 		camera.takePicture(null, null, this.new HandlePictureStorage());
 	}
-	@Override
 	public byte[] getImage(String type) {
 		System.err.println("Camera.getImage: "+type);    
 		if (osb==null) {

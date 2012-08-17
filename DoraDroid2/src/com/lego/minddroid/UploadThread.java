@@ -19,7 +19,6 @@
 
 package com.lego.minddroid;
 
-import android.content.res.AssetFileDescriptor;
 import android.content.res.Resources;
 import android.os.Handler;
 import android.os.Looper;
@@ -85,8 +84,7 @@ public final class UploadThread extends Thread {
      * Puts a new request for stopping the looper into the queue
      */
     public synchronized void requestStop() {
-        handler.post(new Runnable() {
-            @Override
+        boolean post = handler.post(new Runnable() {
             public void run() {
                 Looper.myLooper().quit();
             }
@@ -99,7 +97,6 @@ public final class UploadThread extends Thread {
      */
     public synchronized void enqueueUpload(final String nxtAddress, final String fileName) {
         handler.post(new Runnable() {
-            @Override
             public void run() {
                 boolean uploading = false;
                 try {

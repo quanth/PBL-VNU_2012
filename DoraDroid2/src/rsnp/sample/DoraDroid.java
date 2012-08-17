@@ -118,11 +118,8 @@ public class DoraDroid extends Activity implements BTConnectable {
 	private OnInitListener ttsInitListener = new OnInitListener() {
 
 		/*
-		 * (Ã©ï¿½Å¾ Javadoc)
-		 *
 		 * @see android.speech.tts.TextToSpeech.OnInitListener#onInit(int)
 		 */
-		@Override
 		public void onInit(int status) {
 			if (status == TextToSpeech.SUCCESS) {
 
@@ -134,38 +131,30 @@ public class DoraDroid extends Activity implements BTConnectable {
 		}
 	};
 	/**
-	 * Ã£Æ’â€˜Ã£Æ’Â©Ã£Æ’Â¡Ã£â€šÂ¿Ã£ï¿½Â§Ã¦Å’â€¡Ã¥Â®Å¡Ã£ï¿½â€¢Ã£â€šÅ’Ã£ï¿½Å¸Ã¦â€“â€¡Ã¥Â­â€”Ã¥Ë†â€”Ã£â€šâ€™Ã§â€�Â»Ã©ï¿½Â¢Ã£ï¿½Â«Ã¨Â¡Â¨Ã§Â¤ÂºÃ£ï¿½â€”Ã£â‚¬ï¿½Ã¨ÂªÂ­Ã£ï¿½Â¿Ã¤Â¸Å Ã£ï¿½â€™Ã£â€šâ€¹(Ã¨â€¹Â±Ã¨ÂªÅ¾)
-	 *
 	 * @param message
-	 *            Ã¨Â¡Â¨Ã§Â¤ÂºÃ£ï¿½â„¢Ã£â€šâ€¹Ã¦â€“â€¡Ã¥Â­â€”Ã¥Ë†â€”
 	 */
 	public void displayAndSpeech(final String message) {
-
-		// Ã£Æ’â€œÃ£Æ’Â¥Ã£Æ’Â¼Ã£ï¿½Â«Ã¨Â¨Â­Ã¥Â®Å¡
 		final TextView txtView = (TextView) findViewById(R.id.textView);
 		txtView.post(new Runnable() {
-			@Override
+			
 			public void run() {
 				txtView.setText(message);
 			}
 		});
 
-		// Ã¨ÂªÂ­Ã£ï¿½Â¿Ã¤Â¸Å Ã£ï¿½â€™Ã£â€šâ€¹
 		tts.speak(message, TextToSpeech.QUEUE_FLUSH, null);
 		System.out.println(message);
 	}
 
-	/** Contents_profileÃ£ï¿½Â®Ã£â€šÂ³Ã£Æ’Â¼Ã£Æ’Â«Ã£Æ’ï¿½Ã£Æ’Æ’Ã£â€šÂ¯ */
+	/** Contents_profile*/
 	private IAsyncCallBack callback = new IAsyncCallBack() {
 
 		/*
-		 * (Ã©ï¿½Å¾ Javadoc)
-		 *
 		 * @see
 		 * org.robotservices.v02.IAsyncCallBack#doEvent(org.robotservices.v02
 		 * .profile .common.Ret_value, boolean)
 		 */
-		@Override
+		
 		public void doEvent(Ret_value ret, boolean isLast) {
 			//ret: message sent from webGUI
 			ContentsProfileHelper helper = new ContentsProfileHelper(ret);
@@ -175,14 +164,11 @@ public class DoraDroid extends Activity implements BTConnectable {
 		}
 
 		/*
-		 * (Ã©ï¿½Å¾ Javadoc)
-		 *
 		 * @see
 		 * org.robotservices.v02.IAsyncCallBack#doException(java.lang.Exception)
 		 */
-		@Override
+		
 		public void doException(Exception arg0) {
-			// Ã£ï¿½ÂªÃ£ï¿½Â«Ã£â€šâ€šÃ£ï¿½â€”Ã£ï¿½ÂªÃ£ï¿½â€ž
 		}
 	};
 
@@ -200,7 +186,7 @@ public class DoraDroid extends Activity implements BTConnectable {
 
 	//private static Activity splashMenu;
 
-	@Override
+	
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		res = getResources();
@@ -212,7 +198,7 @@ public class DoraDroid extends Activity implements BTConnectable {
 		tts = new TextToSpeech(getApplicationContext(), ttsInitListener);
 		rsnp = new RSNPController(callback);
 		//scribeView = new SurfaceScribeView(this);
-		// ObjectHolderÃ£ï¿½Â«Ã§â„¢Â»Ã©Å’Â²
+		// ObjectHolder
 		//ObjectHolder.getInstance().add(ImageProvidor.class.getName(), scribeView);
 		cameraview = new CameraSurfaceView(this);
 		ObjectHolder.getInstance().add(ImageProvidor.class.getName(), cameraview);
@@ -438,17 +424,15 @@ public class DoraDroid extends Activity implements BTConnectable {
 		}
 	}     
 
-	@Override
+	
 	protected void onDestroy() {
-		// RSNPÃ¥Ë†â€¡Ã¦â€“Â­
 		rsnp.disconnect();
-		// TTSÃ§Âµâ€šÃ¤Âºâ€ 
 		tts.shutdown();
 		super.onDestroy();
 		destroyBTCommunicator();
 	}
 
-	@Override
+	
 	protected void onStart() {
 		super.onStart();
 
@@ -472,7 +456,7 @@ public class DoraDroid extends Activity implements BTConnectable {
 	/**
 	 * @return true, when currently pairing 
 	 */
-	@Override
+	
 	public boolean isPairing() {
 		return pairing;
 	}
@@ -496,7 +480,7 @@ public class DoraDroid extends Activity implements BTConnectable {
         btOnByUs = btOn;
     }*/
 
-	@Override
+	
 	public void onActivityResult(int requestCode, int resultCode, Intent data) {
 		switch (requestCode) {
 		case REQUEST_CONNECT_DEVICE:
@@ -572,7 +556,7 @@ public class DoraDroid extends Activity implements BTConnectable {
 		reusableToast.show();
 	}
 
-	@Override
+	
 	protected void onPause() {
 		/* if (isBtOnByUs()) {// || NXJUploader.isBtOnByUs()) {
             BluetoothAdapter.getDefaultAdapter().disable();
@@ -582,12 +566,12 @@ public class DoraDroid extends Activity implements BTConnectable {
 		super.onPause();
 	}
 
-	@Override
+	
 	protected void onResume() {
 		// TODO Auto-generated method stub
 		super.onResume();
 	}
-	@Override
+	
 	public void onSaveInstanceState(Bundle icicle) {
 		super.onSaveInstanceState(icicle);
 		//mView.unregisterListener();
@@ -596,7 +580,7 @@ public class DoraDroid extends Activity implements BTConnectable {
 	/**
 	 * Creates the menu items
 	 */
-	@Override
+	
 	public boolean onCreateOptionsMenu(Menu menu) {
 		MenuInflater inflater = getMenuInflater();
 		inflater.inflate(R.menu.options_menu, menu);
@@ -606,7 +590,7 @@ public class DoraDroid extends Activity implements BTConnectable {
 	/**
 	 * Enables/disables the menu items
 	 */
-	@Override
+	
 	public boolean onPrepareOptionsMenu(Menu menu) {
 		boolean rsnpConnected = rsnp.isConnected();
 		if (menu != null) {
@@ -622,7 +606,7 @@ public class DoraDroid extends Activity implements BTConnectable {
 	/**
 	 * Handles item selections
 	 */
-	@Override
+	
 	public boolean onOptionsItemSelected(MenuItem item) {
 		switch (item.getItemId()) {
 		case R.id.rsnp_connect:
@@ -635,7 +619,7 @@ public class DoraDroid extends Activity implements BTConnectable {
 			text = (EditText)dialog.findViewById(R.id.ipString);
 
 			button.setOnClickListener(new View.OnClickListener() {
-				@Override
+				
 				public void onClick(View v) {
 					rsnp.setEpn(text.getText().toString());
 					dialog.dismiss();
@@ -671,7 +655,7 @@ public class DoraDroid extends Activity implements BTConnectable {
 	 * Receive messages from the BTCommunicator
 	 */
 	final static Handler myHandler = new Handler() {
-		@Override
+		
 		public void handleMessage(Message myMessage) {
 			switch (myMessage.getData().getInt("message")) {
 			case BTCommunicator.DISPLAY_TOAST:
@@ -715,8 +699,7 @@ public class DoraDroid extends Activity implements BTConnectable {
                         AlertDialog.Builder builder = new AlertDialog.Builder(thisActivity);
                         builder.setTitle(res.getString(R.string.bt_error_dialog_title))
                         .setMessage(getResources().getString(R.string.bt_error_dialog_message)).setCancelable(false)
-                        .setPositiveButton("OK", new DialogInterface.OnClickListener() {
-                            @Override
+                        .setPositiveButton("OK", new DialogInterface.OnClickListener() {                            
                             public void onClick(DialogInterface dialog, int id) {
                                 btErrorPending = false;
                                 dialog.cancel();

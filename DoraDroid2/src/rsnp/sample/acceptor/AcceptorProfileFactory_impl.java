@@ -13,14 +13,11 @@ import rsnp.sample.acceptor.Motion_profile_impl;
 import com.fujitsu.rsi.client.acceptor.base.AcceptorProfileFactoryBase;
 
 /**
- * AcceptorProfileFactoryã�®å®Ÿè£…ã‚¯ãƒ©ã‚¹
- *
+ * AcceptorProfileFactory
  */
 public class AcceptorProfileFactory_impl extends AcceptorProfileFactoryBase {
 
 	/*
-	 * (é�ž Javadoc)
-	 *
 	 * @seecom.fujitsu.rsi.client.acceptor.base.AcceptorProfileFactoryBase#
 	 * getMultimedia_profile()
 	 */

@@ -30,10 +30,6 @@ import com.fujitsu.rsi.helper.BasicProfileHelper;
 import com.fujitsu.rsi.helper.ContentsProfileHelper;
 import com.fujitsu.rsi.util.RESULT;
 
-/**
- * RSNPÃ¦Å½Â¥Ã§Â¶Å¡Ã£â€šâ€™Ã§Â®Â¡Ã§ï¿½â€ Ã£ï¿½â„¢Ã£â€šâ€¹Ã£â€šÂ¯Ã£Æ’Â©Ã£â€šÂ¹
- *
- */
 public class RSNPController {
 	//private static String epn = "http://localhost:8080/ServiceSample/services";
 	//private static String epn = "http://10.10.16.69:8080/ServiceSample/services";
@@ -52,10 +48,7 @@ public class RSNPController {
 	long conv_id;
 
 	/**
-	 * Ã¦Å’â€¡Ã¥Â®Å¡Ã£ï¿½â€¢Ã£â€šÅ’Ã£ï¿½Å¸Ã£Æ’â€˜Ã£Æ’Â©Ã£Æ’Â¡Ã£â€šÂ¿Ã£ï¿½Â§RSNPControllerÃ£â€šÂªÃ£Æ’â€“Ã£â€šÂ¸Ã£â€šÂ§Ã£â€šÂ¯Ã£Æ’Ë†Ã£â€šâ€™Ã¦Â§â€¹Ã§Â¯â€°Ã£ï¿½â„¢Ã£â€šâ€¹
-	 *
 	 * @param callback
-	 *            Contents_profileÃ£ï¿½Â§Ã©â€¦ï¿½Ã¤Â¿Â¡Ã£ï¿½â€¢Ã£â€šÅ’Ã£â€šâ€¹Ã¦Æ’â€¦Ã¥Â Â±Ã£â€šâ€™Ã¥ï¿½â€”Ã£ï¿½â€˜Ã¥ï¿½â€“Ã£â€šâ€¹Ã£â‚¬ï¿½IAsyncCallBackÃ£â€šÂªÃ£Æ’â€“Ã£â€šÂ¸Ã£â€šÂ§Ã£â€šÂ¯Ã£Æ’Ë†
 	 */
 	public void setEpn(String epn){
 		this.epn = epn;
@@ -67,15 +60,11 @@ public class RSNPController {
 		this.callback = callback;
 	}
 	
-	/**
-	 * Ã£â€šÂµÃ£Æ’Â¼Ã£Æ’â€œÃ£â€šÂ¹Ã£ï¿½Â«Ã¦Å½Â¥Ã§Â¶Å¡Ã£ï¿½â„¢Ã£â€šâ€¹
-	 */
 	public void connect() {
 		
 		ConnectionInfo connectioninfo = new ConnectionInfo();
 		connectioninfo.set_endpointname(epn);
 		
-		// Ã¤Â¸â€¹Ã¤Â½ï¿½Ã©â‚¬Å¡Ã¤Â¿Â¡Ã¦Å½Â¥Ã§Â¶Å¡
 		try {
 			// obtain a factory
 			System.out.print("Connecting to " + epn);
@@ -102,17 +91,14 @@ public class RSNPController {
 
 				System.err.println("Authentication succeeded. conv_id:" + conv_id);
 
-				// Ã£â€šÂ³Ã£Æ’Â³Ã£Æ’â€ Ã£Æ’Â³Ã£Æ’â€žÃ£Æ’â€”Ã£Æ’Â­Ã£Æ’â€¢Ã£â€šÂ¡Ã£â€šÂ¤Ã£Æ’Â«(invoker)
 				cp = factory.getContents_profile();
 				cp.distribute_contents(conv_id, "", -1, 10000, callback);
 				//System.err.println("done cp");
 				
-				// Ã£Æ’Å¾Ã£Æ’Â«Ã£Æ’ï¿½Ã£Æ’Â¡Ã£Æ’â€¡Ã£â€šÂ£Ã£â€šÂ¢Ã£Æ’â€”Ã£Æ’Â­Ã£Æ’â€¢Ã£â€šÂ¡Ã£â€šÂ¤Ã£Æ’Â«Ã¯Â¼Ë†invokerÃ¯Â¼â€°
 				mp = factory.getMultimedia_profile();
 				mp.start_profile(conv_id);
 				//System.err.println("done mp");
 				
-				// ãƒ¢ãƒ¼ã‚·ãƒ§ãƒ³ãƒ—ãƒ­ãƒ•ã‚¡ã‚¤ãƒ«ï¼ˆinvokerï¼‰
 				mop = factory.getMotion_profile();
 				mop.start_profile(conv_id);
 				//System.err.println("done mop");				
@@ -124,9 +110,6 @@ public class RSNPController {
 		}
 	}
 
-	/**
-	 * Ã£â€šÂµÃ£Æ’Â¼Ã£Æ’â€œÃ£â€šÂ¹Ã£ï¿½â€¹Ã£â€šâ€°Ã¥Ë†â€¡Ã¦â€“Â­Ã£ï¿½â„¢Ã£â€šâ€¹
-	 */
 	public void disconnect() {
 
 		try {
@@ -165,9 +148,7 @@ public class RSNPController {
 	}
 
 	/**
-	 * Ã¦Å½Â¥Ã§Â¶Å¡Ã§Å Â¶Ã¦â€¦â€¹Ã£â€šâ€™Ã¨Â¿â€�Ã£ï¿½â„¢
-	 *
-	 * @return true:Ã¦Å½Â¥Ã§Â¶Å¡ false:Ã¥Ë†â€¡Ã¦â€“Â­
+	 * @return true if connected and false if not connected
 	 */
 	public boolean isConnected() {
 
