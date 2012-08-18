@@ -13,7 +13,8 @@ import org.robotservices.v02.profile.common.Ret_value;
 import com.fujitsu.rsi.client.acceptor.base.MultimediaProfileBase;
 import com.fujitsu.rsi.helper.MultimediaProfileHelper;
 import com.fujitsu.rsi.util.RESULT;
-import rsnp.sample.CameraImage;
+import rsnp.sample.ImageProvidor;
+import rsnp.sample.ObjectHolder;
 
 /**
  * IMultimedia_profile
@@ -21,11 +22,15 @@ import rsnp.sample.CameraImage;
  */
 public class Multimedia_profile_impl extends MultimediaProfileBase {
 
-	private CameraImage ci;
-	public Multimedia_profile_impl() {
+	/** ImageProvidorﾃ｣窶堋ｪﾃ｣ﾆ停�ﾃ｣窶堋ｸﾃ｣窶堋ｧﾃ｣窶堋ｯﾃ｣ﾆ塚�*/
+	private ImageProvidor imageProvidor;
 
-		ci = new CameraImage();
-		System.out.println(ci.getClass()+" Camera image");
+	public Multimedia_profile_impl() {
+		// ObjectHolderﾃ｣�ｽ窶ｹﾃ｣窶壺�ﾃ･�ｽ窶禿･ﾂｾ窶�
+		imageProvidor = ObjectHolder.getInstance().get(
+		ImageProvidor.class.getName());
+		System.out.println(imageProvidor.getClass()+" imageProvider");
+
 	}
 
 	/*
@@ -38,25 +43,27 @@ public class Multimedia_profile_impl extends MultimediaProfileBase {
 	@Override
 	public Ret_value get_camera_image(long conv_id, String id, String options) {
 		System.err.println("Multimedia_profile_impl:get_camera_image enter");
-		SimpleDateFormat sdf = new SimpleDateFormat(
-				"yyyy-MM-dd'T'HH:mm:ss.SSSZ");
+		SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss.SSSZ");
 		String time = sdf.format(new Date());
-		System.out.println("" + time);
-		
-		ci.loadNext();		
-				
-		AttachedFile attachedFile = new AttachedFile();
-		attachedFile.set_mime_type("image/jpg");
-		attachedFile.set_file_name(ci.getFilename());
-		attachedFile.set_capture_time(ci.getCaptureDate());
-		attachedFile.set_byte_array(ci.getImage());
+		System.out.println("ﾃｧ窶敖ｻﾃ･ﾆ抵ｿｽﾃ･�ｽ窶禿･ﾂｾ窶氾ｦ邃｢窶堙ｩ窶凪�ﾃｯﾂｼﾅ｡" + time);
+		// ﾃｧ窶敖ｻﾃ･ﾆ抵ｿｽﾃ｣窶壺�ﾃ･�ｽ窶禿･ﾂｾ窶�
+		imageProvidor.takeImage();
+		while(imageProvidor.getSemaphore() == 0){
+		}
+		byte[] bytes = imageProvidor.getImage("PNG");
+		imageProvidor.setSemaphore(0);
+
+		AttachedFile af = new AttachedFile();
+		af.set_mime_type("image/png");
+		af.set_file_name(time + ".png");
+		af.set_capture_time(time);
+		af.set_byte_array(bytes);
 
 		Ret_value ret = new Ret_value();
 		MultimediaProfileHelper helper = new MultimediaProfileHelper(ret);
 		helper.setResult(RESULT.SUCCESS.getResult());
-		helper.setDetail("distribute_camera_image");
-		helper.setAttachedFile(attachedFile);
-		
+		helper.setDetail("");
+		helper.setAttachedFile(af);
 		System.err.println("Multimedia_profile_impl:get_camera_image exit");
 		return ret;
 	}
