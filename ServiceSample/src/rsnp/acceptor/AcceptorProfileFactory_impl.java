@@ -14,8 +14,8 @@ import org.robotservices.v02.profile.acceptor.IMultimedia_profile;
 import com.fujitsu.rsi.server.acceptor.base.AcceptorProfileFactoryBase;
 
 /**
- * AcceptorFactoryの実装クラス<br>
- * AcceptorProfileFactoryBaseを継承しているため、不要なメソッドを実装する必要がない
+ * AcceptorFactoryã�®å®Ÿè£…ã‚¯ãƒ©ã‚¹<br>
+ * AcceptorProfileFactoryBaseã‚’ç¶™æ‰¿ã�—ã�¦ã�„ã‚‹ã�Ÿã‚�ã€�ä¸�è¦�ã�ªãƒ¡ã‚½ãƒƒãƒ‰ã‚’å®Ÿè£…ã�™ã‚‹å¿…è¦�ã�Œã�ªã�„
  */
 public class AcceptorProfileFactory_impl extends AcceptorProfileFactoryBase {
 
@@ -27,7 +27,7 @@ public class AcceptorProfileFactory_impl extends AcceptorProfileFactoryBase {
 	};
 
 	/*
-	 * (非 Javadoc)
+	 * (é�ž Javadoc)
 	 *
 	 * @seecom.fujitsu.rsi.server.acceptor.base.AcceptorProfileFactoryBase#
 	 * getBasic_profile()
@@ -38,7 +38,7 @@ public class AcceptorProfileFactory_impl extends AcceptorProfileFactoryBase {
 	}
 
 	/*
-	 * (非 Javadoc)
+	 * (é�ž Javadoc)
 	 *
 	 * @seecom.fujitsu.rsi.server.acceptor.base.AcceptorProfileFactoryBase#
 	 * getContents_profile()
@@ -49,7 +49,7 @@ public class AcceptorProfileFactory_impl extends AcceptorProfileFactoryBase {
 	}
 
 	/*
-	 * (非 Javadoc)
+	 * (é�ž Javadoc)
 	 *
 	 * @seecom.fujitsu.rsi.server.acceptor.base.AcceptorProfileFactoryBase#
 	 * getMultimedia_profile()
@@ -63,4 +63,5 @@ public class AcceptorProfileFactory_impl extends AcceptorProfileFactoryBase {
 	public IMotion_profile getMotion_profile() {
 		return new Motion_profile_impl(local.get());
 	}
+	
 }

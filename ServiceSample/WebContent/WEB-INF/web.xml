@@ -72,5 +72,15 @@
 		<servlet-name>RobotControlServlet</servlet-name>
 		<url-pattern>/robotcontrol</url-pattern>
 	</servlet-mapping>
+	<servlet>
+		<description></description>
+		<display-name>RobotPositionServlet</display-name>
+		<servlet-name>RobotPositionServlet</servlet-name>
+		<servlet-class>rsnp.servlet.RobotPositionServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>RobotPositionServlet</servlet-name>
+		<url-pattern>/robotGPS</url-pattern>
+	</servlet-mapping>
 
 </web-app>

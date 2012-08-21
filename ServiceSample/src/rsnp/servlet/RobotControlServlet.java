@@ -16,13 +16,13 @@ import org.robotservices.v02.profile.invoker.IMotion_profile;
 import org.robotservices.v02.profile.invoker.InvokerProfileFactory;
 
 /**
- * ロボット操作初期表示用サーブレット
+ * ãƒ­ãƒœãƒƒãƒˆæ“�ä½œåˆ�æœŸè¡¨ç¤ºç”¨ã‚µãƒ¼ãƒ–ãƒ¬ãƒƒãƒˆ
  */
 public class RobotControlServlet extends HttpServlet {
 
 	private static final long serialVersionUID = 1L;
 	Logger m_logger = Logger.getLogger(this.getClass().getName());
-	// コンストラクタ
+	// ã‚³ãƒ³ã‚¹ãƒˆãƒ©ã‚¯ã‚¿
 	public RobotControlServlet() {
 		super();
 	}
@@ -45,16 +45,16 @@ public class RobotControlServlet extends HttpServlet {
 
 		req.setCharacterEncoding("Windows-31J");
 
-		// リクエストパラメタの取得
+		// ãƒªã‚¯ã‚¨ã‚¹ãƒˆãƒ‘ãƒ©ãƒ¡ã‚¿ã�®å�–å¾—
 		String MyAction = req.getParameter("MySubmit");
-
+		System.out.println("MyAction:_" + MyAction + "_");
 		String robotId = req.getParameter("robotid");
-
-		robotId ="levin";
-		// ロボットIDが指定されていなければ初期画面表示
+		System.out.println("robotID:_" + robotId + "_");
+		//robotId ="levin";
+		// ãƒ­ãƒœãƒƒãƒˆIDã�ŒæŒ‡å®šã�•ã‚Œã�¦ã�„ã�ªã�‘ã‚Œã�°åˆ�æœŸç”»é�¢è¡¨ç¤º
 		if (robotId == null) {
-			// UIへフォワード
-			System.out.println("robotIDがないrobocon");
+			// UIã�¸ãƒ•ã‚©ãƒ¯ãƒ¼ãƒ‰
+			System.out.println("robotIDã�Œã�ªã�„robocon");
 			req.getRequestDispatcher("/jsp/robotcontrol.jsp").forward(req, res);
 			return;
 		}
@@ -62,42 +62,45 @@ public class RobotControlServlet extends HttpServlet {
 		RobotWorkerManager rwm = RobotWorkerManager.getInstance();
 		IWorkerTool workertool = rwm.getWorkerTool(robotId);
 		if (workertool != null) {
-			System.out.println("wt !=null robocon");
+			//System.out.println("wt !=null robocon");
 			InvokerProfileFactory factory = workertool.getProfileFactory();
 			IMotion_profile motionp = factory.getMotion_profile();
-
+			System.out.println("wt1");
 			long conv_id = workertool.getConv_id();
 			Ret_value ret = null;
+			System.out.println("wt2");
 			try {
 				//ret = motionp.declare_control(conv_id);
-				// 処理の実行
+				// å‡¦ç�†ã�®å®Ÿè¡Œ
 				try {
 					Thread.sleep(3000);
 				} catch (InterruptedException e) {
-					// TODO 自動生成された catch ブロック
+					// TODO è‡ªå‹•ç”Ÿæˆ�ã�•ã‚Œã�Ÿ catch ãƒ–ãƒ­ãƒƒã‚¯
 					e.printStackTrace();
 				}
+				System.out.println("wt3");
 				if (MyAction != null) {
 					if (MyAction.equals("forward")) {
-						System.out.println("前進");
+						System.out.println("RobotControlServlet:forward");
 						ret = motionp.forward(conv_id, 30, "");
 					}
 					if (MyAction.equals("back")) {
-						System.out.println("後退");
+						System.out.println("RobotControlServlet:back");
 						ret = motionp.backward(conv_id, 30, "");
 					}
 					if (MyAction.equals("right")) {
-						System.out.println("右");
+						System.out.println("RobotControlServlet:right");
 						ret = motionp.spin_right(conv_id, 30, "");
 					}
 					if (MyAction.equals("left")) {
-						System.out.println("左");
+						System.out.println("RobotControlServlet:left");
 						ret = motionp.spin_left(conv_id,30, "");
 					}
 					if (MyAction.equals("stop")) {
-						System.out.println("停止");
+						System.out.println("RobotControlServlet:stop");
 						ret=motionp.stop(conv_id,"");
 					}
+					System.out.println("wt4");
 				}
 
 			} catch (RSiException e) {
